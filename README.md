@@ -3,6 +3,7 @@
 This repository is the **official workspace** for CMPS350 Web Application  Development.
 It is important to maintain a **clean and consistent folder structure** throughout the semester.
 Please **do not add or modify folders** outside the structure defined below.
+Test
 
 ---
 
