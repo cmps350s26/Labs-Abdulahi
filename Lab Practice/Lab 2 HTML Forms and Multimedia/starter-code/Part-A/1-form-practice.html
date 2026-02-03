@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Practice - Lab 2 Part A</title>
 </head>
+
 <body>
     <header>
         <h1>Form Practice Exercises</h1>
-        <p>Practice HTML forms and input types. Refer to <strong>screenshots/1-form-practice.png</strong> for expected result.</p>
+        <p>Practice HTML forms and input types. Refer to <strong>screenshots/1-form-practice.png</strong> for expected
+            result.</p>
     </header>
 
     <main>
@@ -18,6 +21,71 @@
              - All required, submit + reset buttons -->
         <section>
             <h2>Module 1: Contact Form</h2>
+
+            <form action="#">
+
+                <!-- <fieldset>
+                    <legend>
+                        Login Information
+                    </legend>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input id="name" type="text" name="name" placeholder="Enter your name" required>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input placeholder="Enter your password" id="password" type="password" name="password" required>
+                    </div>
+
+
+
+                </fieldset>
+
+                <fieldset>
+                    <legend>Other Form Elements</legend>
+                    <input type="checkbox" name="" id="" checked>
+                    <input type="datetime-local" name="" id="" checked>
+                    <input type="color">
+                    <input type="file">
+
+                    <div class="form-group">
+                        <label for="">Gender</label>
+                        <label for="">Female</label>
+                        <input type="radio" name="gender" value="female">
+                        <label for="male">Male</label>
+                        <input type="radio" name="gender" value="male" id="male">
+                        <input type="range">
+                    </div>
+
+                </fieldset> -->
+                <label for="nationality">Nationality</label>
+                <select name="nationality" id="nationality" multiple size="1">
+                    <optgroup label="Asia">
+                        <option value="indian">Indian</option>
+                        <option value="qatari">Qatari</option>
+                        <option value="bangladish">Bangladish</option>
+                    </optgroup>
+                    <optgroup label="Africa">
+                        <option value="egypt">Egypt</option>
+                        <option value="sudan">Sudan</option>
+                    </optgroup>
+                    <option value="others">Others</option>
+
+                </select>
+
+                <input type="search" list="countries">
+
+                <datalist id="countries">
+                    <option value="Qatar">
+                    <option value="India">
+                    <option value="USA">
+                    <option value="UK">
+                    <option value="Canada">
+                </datalist>
+
+                <input type="submit" value="Login">
+            </form>
 
 
         </section>
@@ -64,4 +132,5 @@
         <p>&copy; 2026 CMPS 356 - Lab 2 Practice</p>
     </footer>
 </body>
+
 </html>

@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multimedia Practice - Lab 2 Part A</title>
 </head>
+
 <body>
     <header>
         <h1>Multimedia Practice</h1>
-        <p>Practice HTML5 video and audio. Refer to <strong>screenshots/2-multimedia-practice.png</strong> for expected result.</p>
+        <p>Practice HTML5 video and audio. Refer to <strong>screenshots/2-multimedia-practice.png</strong> for expected
+            result.</p>
     </header>
 
     <main>
@@ -17,6 +20,22 @@
              Poster: https://placehold.co/800x450/1976D2/white?text=Video+Poster -->
         <section>
             <h2>Video Practice</h2>
+
+            <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/MrSYP-cotdg?si=h4R3VRaMIAuzKK-N&amp;start=60"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <video controls width="90%"
+                poster="https://7days-production.s3.eu-west-2.amazonaws.com/sevendays/upload/media/default/0033/64/1fbc62fd3432c0aabcb095f9c8e772b59e42233b.jpg">
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                <source src="https://www.w3schools.com/html/mov_bbb.avi" type="video/avi">
+                <source src="https://www.w3schools.com/html/mov_bbb.mkv" type="video/mkv">
+                Your browser does not support the video tag.
+            </video>
+
+            <video src="../media/china.mp4" controls width="90%"></video>
+            <audio src="../media/cannon.mp3" controls></audio>
 
 
         </section>
@@ -42,4 +61,5 @@
         <p>&copy; 2026 CMPS 356 - Lab 2 Practice</p>
     </footer>
 </body>
+
 </html>

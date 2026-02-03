@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Application - MyFinance Dashboard</title>
+</head>
+<body>
+    <header>
+        <h1>Account Application</h1>
+        <p>Apply for a new financial account</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Dashboard</a> |
+        <a href="budget-tracker.html">Budget Tracker</a> |
+        <a href="goal-planner.html">Goal Planner</a> |
+        <a href="account-application.html">New Account</a>
+    </nav>
+
+    <main>
+        <!-- TODO: Create a form with action="/api/applications" method="POST" -->
+        <!-- Form heading: New Account Application -->
+
+        <!-- ============================================== -->
+        <!-- SECTION 1: Personal Information (fieldset)     -->
+        <!-- ============================================== -->
+        <!-- TODO: Create fieldset with legend "Personal Information"
+             Fields:
+             - Full Name: text, required
+             - Email: email, required
+             - Phone: tel, pattern="[0-9]{8}", required, with help text
+             - Date of Birth: date, max="2008-01-25", required, with help text
+             - Gender: 4 radio buttons (Male, Female, Other, Prefer not to say)
+             - Nationality: select with 8 countries, required
+        -->
+
+
+        <!-- ============================================== -->
+        <!-- SECTION 2: Address Information (fieldset)      -->
+        <!-- ============================================== -->
+        <!-- TODO: Create fieldset with legend "Address Information"
+             Fields:
+             - Street Address: text, required
+             - City: text, required
+             - Zone: number (1-999), optional
+             - P.O. Box: text, optional
+        -->
+
+
+        <!-- ============================================== -->
+        <!-- SECTION 3: Account Details (fieldset)          -->
+        <!-- ============================================== -->
+        <!-- TODO: Create fieldset with legend "Account Details"
+             Fields:
+             - Account Type: 3 radio buttons (Checking, Savings, Investment), required
+             - Initial Deposit: number, min="100", step="0.01", required
+             - Preferred Currency: select (QAR selected, USD, EUR)
+             - Account Purpose: 4 checkboxes (Daily Expenses, Savings, Business, Investment)
+        -->
+
+
+        <!-- ============================================== -->
+        <!-- SECTION 4: Employment Information (fieldset)   -->
+        <!-- ============================================== -->
+        <!-- TODO: Create fieldset with legend "Employment Information"
+             Fields:
+             - Employment Status: select with 5 options, required
+             - Employer Name: text, optional
+             - Monthly Income Range: range (0-50000, step=1000, value=10000) with output
+             - Primary Income Source: select with 6 options
+        -->
+
+
+        <!-- ============================================== -->
+        <!-- SECTION 5: Communication Preferences (fieldset)-->
+        <!-- ============================================== -->
+        <!-- TODO: Create fieldset with legend "Communication Preferences"
+             Fields:
+             - Preferred Language: 2 radio buttons (English checked, Arabic)
+             - Contact Preferences: 4 checkboxes (Email checked, SMS, Phone, Postal Mail)
+             - Paperless Statements: checkbox
+             - Marketing Communications: checkbox
+        -->
+
+
+        <!-- ============================================== -->
+        <!-- SECTION 6: Terms and Conditions (fieldset)     -->
+        <!-- ============================================== -->
+        <!-- TODO: Create fieldset with legend "Terms and Conditions"
+             Fields:
+             - Terms Agreement: checkbox, required
+             - Privacy Policy: checkbox, required
+             - Electronic Signature: text, required, with help text
+        -->
+
+
+        <!-- TODO: Submit button: "Submit Application" -->
+
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MyFinance Dashboard</p>
+        <p><a href="index.html">Back to Dashboard</a></p>
+    </footer>
+</body>
+</html>

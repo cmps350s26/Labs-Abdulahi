@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Tracker - MyFinance Dashboard</title>
+</head>
+<body>
+    <header>
+        <h1>Budget Tracker</h1>
+        <p>Log your income and expenses</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Dashboard</a> |
+        <a href="budget-tracker.html">Budget Tracker</a> |
+        <a href="goal-planner.html">Goal Planner</a> |
+        <a href="account-application.html">New Account</a>
+    </nav>
+
+    <main>
+        <!-- TODO: Create a form with action="/api/transactions" method="POST" -->
+        <!-- Form heading: Add Transaction -->
+
+        <!-- TODO: Build the following form fields:
+
+        1. Transaction Type (radio buttons in fieldset)
+           - Legend: Transaction Type
+           - Radio: id="income", name="type", value="income", required
+           - Radio: id="expense", name="type", value="expense"
+
+        2. Category (select with optgroups)
+           - Label with required asterisk
+           - id="category", name="category", required, aria-required="true"
+           - Optgroup: Income Categories (salary, freelance, investment, other-income)
+           - Optgroup: Expense Categories (food, transport, entertainment, utilities, healthcare, shopping, education, other-expense)
+
+        3. Amount (number input)
+           - Label with required asterisk
+           - id="amount", min="0", step="0.01", required
+           - aria-describedby="amount-help"
+           - Help text: "Enter amount in Qatari Riyals"
+
+        4. Transaction Date (date input)
+           - Label with required asterisk
+           - id="date", max="2026-12-31", required
+
+        5. Description (text input)
+           - Label with required asterisk
+           - id="description", maxlength="100", required
+           - placeholder="e.g., Grocery shopping at Carrefour"
+
+        6. Account (select)
+           - Label with required asterisk
+           - id="account", required
+           - Options: Primary Checking, Emergency Fund, Stock Portfolio
+
+        7. Payment Method (radio buttons in fieldset)
+           - Legend: Payment Method
+           - Radio: cash (checked), card, transfer
+
+        8. Tags (optional text input)
+           - placeholder="e.g., vacation, car, gift"
+           - Help text: "Separate multiple tags with commas"
+
+        9. Recurring Transaction (checkbox)
+           - id="recurring", value="yes"
+           - Label: "This is a recurring transaction"
+
+        10. Additional Notes (optional textarea)
+            - id="notes", rows="4", maxlength="300"
+
+        11. Buttons: "Add Transaction" (submit), "Clear Form" (reset)
+        -->
+
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MyFinance Dashboard</p>
+        <p><a href="index.html">Back to Dashboard</a></p>
+    </footer>
+</body>
+</html>
