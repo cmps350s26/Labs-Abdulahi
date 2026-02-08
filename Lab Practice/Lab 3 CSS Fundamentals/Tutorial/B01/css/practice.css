@@ -20,10 +20,6 @@ p {
    color: #666;
 }
 
-footer {
-   background-color: #333;
-
-}
 
 
 
@@ -31,6 +27,12 @@ footer {
    --------------------------------
    Practice element, class, ID, and descendant selectors
 */
+
+/* element selector */
+footer {
+   background-color: #333;
+
+}
 
 #main-title {
    font-style: italic;
@@ -41,9 +43,23 @@ footer {
 
 }
 
-.highlight {
+/* .highlight {
    background-color: yellow;
+ 
+} */
+
+h2,
+h1,
+p {
+   background-color: red;
+   font-size: 1rem;
+   border: 1px solid red;
 }
+
+/* body main section p {
+   font-size: large;
+   border: 1px solid red;
+} */
 
 /* Module 3: The Box Model
    --------------------------------

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS Practice - Lab 3</title>
     <!-- Link your CSS file here -->
-    <link rel="stylesheet" href="css/practice.css">
+    <link rel="stylesheet" href="css/boxmode.css">
 
 </head>
 
@@ -22,17 +22,20 @@
 
     <!-- main>section*2>h2+p+p -->
     <main>
-        <section id="section1">
+
+
+        <section id="section1" class="box-model">
             <h2>Title 1</h2>
+            <h3>Hello</h3>
             <p>Lorem ipsum dolor sit amet.</p>
             <p class="highlight">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, aliquid!</p>
         </section>
-        <section id="section2">
+        <section id="section2" class="box-model">
             <h2>Title 2</h2>
             <p class="intro">Introduction to Mechanics.</p>
-            <p>Lorem ipsum dolor sit amet consectetur.</p>
+            <p class="highlight">Lorem ipsum dolor sit amet consectetur.</p>
         </section>
-        <p class="highlight">Use this page to practice CSS concepts from Part A.</p>
+        <p class="highlight">I am outside the section Use this page to practice CSS concepts from Part A.</p>
         <p>This is a second paragraph for testing styles.</p>
 
         <!-- Add more HTML as you work through the modules -->
