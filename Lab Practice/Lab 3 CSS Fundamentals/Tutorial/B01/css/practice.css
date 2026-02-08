@@ -32,8 +32,18 @@ footer {
    Practice element, class, ID, and descendant selectors
 */
 
+#main-title {
+   font-style: italic;
+   background-color: antiquewhite;
+   color: gray;
+   text-decoration: underline;
+   border: 1px solid red;
 
+}
 
+.highlight {
+   background-color: yellow;
+}
 
 /* Module 3: The Box Model
    --------------------------------
