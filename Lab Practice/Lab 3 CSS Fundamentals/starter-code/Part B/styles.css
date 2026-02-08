@@ -1,0 +1,128 @@
+/* =================================
+   MyFinance Dashboard - CSS Template
+   Lab 3: Dashboard Styling
+   ================================= */
+
+/* =================================
+   CSS VARIABLES (Color Scheme)
+   ================================= */
+:root {
+    /* Primary Colors */
+    --primary-color: #2c3e50;
+    --primary-light: #34495e;
+
+    /* Secondary Colors */
+    --secondary-color: #3498db;
+    --secondary-light: #5dade2;
+
+    /* Accent Colors */
+    --accent-success: #27ae60;
+    --accent-warning: #f39c12;
+    --accent-danger: #e74c3c;
+
+    /* Text Colors */
+    --text-primary: #2c3e50;
+    --text-secondary: #7f8c8d;
+    --text-muted: #95a5a6;
+
+    /* Background Colors */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --bg-dark: #2c3e50;
+
+    /* Border Colors */
+    --border-color: #e0e0e0;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+
+    /* Font Families */
+    --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-heading: Georgia, 'Times New Roman', serif;
+}
+
+/* =================================
+   RESET & BASE STYLES
+   ================================= */
+/* TODO: Add reset styles */
+
+
+
+/* =================================
+   TYPOGRAPHY
+   ================================= */
+/* TODO: Add typography styles */
+
+
+
+/* =================================
+   HEADER & NAVIGATION
+   ================================= */
+/* TODO: Add header styles */
+
+
+
+/* TODO: Add navigation styles */
+
+
+
+/* =================================
+   MAIN CONTENT
+   ================================= */
+/* TODO: Add main content styles */
+
+
+
+/* =================================
+   CARDS & OVERVIEW METRICS
+   ================================= */
+/* TODO: Add card/article styles for overview section */
+
+
+
+/* =================================
+   TABLES
+   ================================= */
+/* TODO: Add table styles */
+
+
+
+/* =================================
+   GOALS SECTION
+   ================================= */
+/* TODO: Add goals/figure styles */
+
+
+
+/* =================================
+   FORMS (for form pages)
+   ================================= */
+/* TODO: Add form styles */
+
+
+
+/* =================================
+   SIDEBAR (aside)
+   ================================= */
+/* TODO: Add sidebar styles */
+
+
+
+/* =================================
+   FOOTER
+   ================================= */
+/* TODO: Add footer styles */

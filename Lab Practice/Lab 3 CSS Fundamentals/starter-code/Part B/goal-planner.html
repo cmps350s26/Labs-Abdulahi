@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goal Planner - MyFinance</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="images/logo.png" alt="MyFinance Logo">
+        <h1>MyFinance Dashboard</h1>
+        <p>Your Personal Finance Management Platform</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html">Dashboard</a>
+        <a href="budget-tracker.html">Budget Tracker</a>
+        <a href="goal-planner.html" class="active">Goal Planner</a>
+        <a href="account-application.html">Apply for Account</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <section>
+            <h2>Create New Financial Goal</h2>
+            <p>Set savings goals and track your progress towards achieving them.</p>
+
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Goal Details</legend>
+
+                    <label for="goal-name">Goal Name</label>
+                    <input type="text" id="goal-name" name="goal-name" placeholder="e.g., Emergency Fund" required>
+                    <small>Give your goal a memorable name</small>
+
+                    <label for="target-amount">Target Amount (QAR)</label>
+                    <input type="number" id="target-amount" name="target-amount" min="100" step="100" placeholder="10000" required>
+
+                    <label for="current-amount">Current Savings (QAR)</label>
+                    <input type="number" id="current-amount" name="current-amount" min="0" step="0.01" placeholder="0" value="0">
+
+                    <label for="target-date">Target Date</label>
+                    <input type="date" id="target-date" name="target-date" required>
+                    <small>When do you want to achieve this goal?</small>
+
+                    <label for="priority">Priority Level</label>
+                    <select id="priority" name="priority" required>
+                        <option value="">Select priority</option>
+                        <option value="high">High - Essential Goal</option>
+                        <option value="medium">Medium - Important Goal</option>
+                        <option value="low">Low - Nice to Have</option>
+                    </select>
+
+                    <label for="category">Goal Category</label>
+                    <select id="category" name="category" required>
+                        <option value="">Select category</option>
+                        <option value="emergency">Emergency Fund</option>
+                        <option value="vacation">Vacation/Travel</option>
+                        <option value="purchase">Major Purchase</option>
+                        <option value="education">Education</option>
+                        <option value="retirement">Retirement</option>
+                        <option value="investment">Investment</option>
+                        <option value="other">Other</option>
+                    </select>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Contribution Settings</legend>
+
+                    <label>Contribution Frequency</label>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="frequency" value="weekly"> Weekly
+                        </label>
+                        <label>
+                            <input type="radio" name="frequency" value="biweekly"> Bi-weekly
+                        </label>
+                        <label>
+                            <input type="radio" name="frequency" value="monthly" checked> Monthly
+                        </label>
+                    </div>
+
+                    <label for="contribution">Planned Contribution (QAR)</label>
+                    <input type="number" id="contribution" name="contribution" min="0" step="50" placeholder="500">
+                    <small>How much will you save each period?</small>
+
+                    <label>
+                        <input type="checkbox" name="auto-transfer" value="yes">
+                        Enable automatic transfers
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="notifications" value="yes" checked>
+                        Send progress notifications
+                    </label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Additional Notes</legend>
+
+                    <label for="motivation">Why is this goal important to you?</label>
+                    <textarea id="motivation" name="motivation" rows="4" placeholder="Describe your motivation for this goal..."></textarea>
+                </fieldset>
+
+                <button type="submit" class="btn-primary">Create Goal</button>
+                <button type="reset" class="btn-secondary">Clear Form</button>
+            </form>
+        </section>
+
+        <!-- Existing Goals -->
+        <section>
+            <h2>Your Financial Goals</h2>
+
+            <table>
+                <caption>Track your progress towards each goal</caption>
+                <thead>
+                    <tr>
+                        <th>Goal</th>
+                        <th>Target</th>
+                        <th>Current</th>
+                        <th>Progress</th>
+                        <th>Target Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Emergency Fund</td>
+                        <td>30,000 QAR</td>
+                        <td>20,000 QAR</td>
+                        <td>67%</td>
+                        <td>Dec 2026</td>
+                        <td class="text-success">On Track</td>
+                    </tr>
+                    <tr>
+                        <td>Maldives Vacation</td>
+                        <td>15,000 QAR</td>
+                        <td>5,000 QAR</td>
+                        <td>33%</td>
+                        <td>Jul 2027</td>
+                        <td class="text-success">On Track</td>
+                    </tr>
+                    <tr>
+                        <td>New Car</td>
+                        <td>25,000 QAR</td>
+                        <td>0 QAR</td>
+                        <td>0%</td>
+                        <td>Jan 2028</td>
+                        <td class="text-warning">Not Started</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- Sidebar -->
+    <aside>
+        <h2>Goal Setting Tips</h2>
+        <ul>
+            <li>Make goals SMART: Specific, Measurable, Achievable, Relevant, Time-bound</li>
+            <li>Start with smaller goals to build momentum</li>
+            <li>Review and adjust goals quarterly</li>
+            <li>Celebrate milestones along the way</li>
+        </ul>
+
+        <h3>Calculators</h3>
+        <ul>
+            <li><a href="#">Savings Calculator</a></li>
+            <li><a href="#">Compound Interest</a></li>
+            <li><a href="#">Goal Timeline</a></li>
+        </ul>
+    </aside>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 MyFinance. All rights reserved.</p>
+        <p>
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Terms of Service</a> |
+            <a href="#">Contact Us</a>
+        </p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Application - MyFinance</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="images/logo.png" alt="MyFinance Logo">
+        <h1>MyFinance Dashboard</h1>
+        <p>Your Personal Finance Management Platform</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html">Dashboard</a>
+        <a href="budget-tracker.html">Budget Tracker</a>
+        <a href="goal-planner.html">Goal Planner</a>
+        <a href="account-application.html" class="active">Apply for Account</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <section>
+            <h2>Apply for a New Account</h2>
+            <p>Complete this form to open a new savings or investment account with MyFinance.</p>
+
+            <form action="#" method="post">
+                <!-- Personal Information -->
+                <fieldset>
+                    <legend>Personal Information</legend>
+
+                    <label for="full-name">Full Name (as per QID)</label>
+                    <input type="text" id="full-name" name="full-name"
+                           placeholder="Enter your full name"
+                           pattern="[A-Za-z\s]+"
+                           title="Please enter letters and spaces only"
+                           required
+                           aria-required="true">
+
+                    <label for="qid">Qatar ID Number</label>
+                    <input type="text" id="qid" name="qid"
+                           placeholder="Enter 11-digit QID"
+                           pattern="[0-9]{11}"
+                           title="QID must be exactly 11 digits"
+                           maxlength="11"
+                           required
+                           aria-required="true"
+                           aria-describedby="qid-help">
+                    <small id="qid-help">Your 11-digit Qatar ID number</small>
+
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" name="dob" required>
+
+                    <label for="nationality">Nationality</label>
+                    <select id="nationality" name="nationality" required>
+                        <option value="">Select your nationality</option>
+                        <option value="QA">Qatari</option>
+                        <option value="US">American</option>
+                        <option value="GB">British</option>
+                        <option value="IN">Indian</option>
+                        <option value="PK">Pakistani</option>
+                        <option value="PH">Filipino</option>
+                        <option value="EG">Egyptian</option>
+                        <option value="JO">Jordanian</option>
+                        <option value="other">Other</option>
+                    </select>
+
+                    <label>Gender</label>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="gender" value="male" required> Male
+                        </label>
+                        <label>
+                            <input type="radio" name="gender" value="female"> Female
+                        </label>
+                    </div>
+                </fieldset>
+
+                <!-- Contact Information -->
+                <fieldset>
+                    <legend>Contact Information</legend>
+
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email"
+                           placeholder="your.email@example.com"
+                           required
+                           aria-required="true">
+
+                    <label for="phone">Mobile Phone</label>
+                    <input type="tel" id="phone" name="phone"
+                           placeholder="+974 XXXX XXXX"
+                           pattern="[\+]?[0-9\s]{8,15}"
+                           required>
+                    <small>Include country code (e.g., +974)</small>
+
+                    <label for="address">Residential Address</label>
+                    <textarea id="address" name="address" rows="3"
+                              placeholder="Building, Street, Zone, City"
+                              required></textarea>
+                </fieldset>
+
+                <!-- Account Preferences -->
+                <fieldset>
+                    <legend>Account Preferences</legend>
+
+                    <label for="account-type">Account Type</label>
+                    <select id="account-type" name="account-type" required>
+                        <option value="">Select account type</option>
+                        <option value="savings">Savings Account</option>
+                        <option value="checking">Checking Account</option>
+                        <option value="fixed-deposit">Fixed Deposit</option>
+                        <option value="investment">Investment Account</option>
+                    </select>
+
+                    <label for="currency">Preferred Currency</label>
+                    <select id="currency" name="currency" required>
+                        <option value="QAR" selected>Qatari Riyal (QAR)</option>
+                        <option value="USD">US Dollar (USD)</option>
+                        <option value="EUR">Euro (EUR)</option>
+                        <option value="GBP">British Pound (GBP)</option>
+                    </select>
+
+                    <label for="initial-deposit">Initial Deposit Amount (QAR)</label>
+                    <input type="number" id="initial-deposit" name="initial-deposit"
+                           min="500" step="100" placeholder="Minimum: 500 QAR"
+                           required>
+                    <small>Minimum initial deposit is 500 QAR</small>
+
+                    <label>Preferred Contact Method</label>
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="checkbox" name="contact-method" value="email" checked> Email
+                        </label>
+                        <label>
+                            <input type="checkbox" name="contact-method" value="sms"> SMS
+                        </label>
+                        <label>
+                            <input type="checkbox" name="contact-method" value="phone"> Phone Call
+                        </label>
+                    </div>
+                </fieldset>
+
+                <!-- Employment Information -->
+                <fieldset>
+                    <legend>Employment Information</legend>
+
+                    <label for="employment-status">Employment Status</label>
+                    <select id="employment-status" name="employment-status" required>
+                        <option value="">Select status</option>
+                        <option value="employed">Employed</option>
+                        <option value="self-employed">Self-Employed</option>
+                        <option value="student">Student</option>
+                        <option value="retired">Retired</option>
+                        <option value="other">Other</option>
+                    </select>
+
+                    <label for="employer">Employer Name</label>
+                    <input type="text" id="employer" name="employer"
+                           placeholder="Company or organization name">
+
+                    <label for="monthly-income">Monthly Income Range (QAR)</label>
+                    <select id="monthly-income" name="monthly-income" required>
+                        <option value="">Select range</option>
+                        <option value="0-5000">Below 5,000</option>
+                        <option value="5000-10000">5,000 - 10,000</option>
+                        <option value="10000-20000">10,000 - 20,000</option>
+                        <option value="20000-50000">20,000 - 50,000</option>
+                        <option value="50000+">Above 50,000</option>
+                    </select>
+                </fieldset>
+
+                <!-- Terms and Conditions -->
+                <fieldset>
+                    <legend>Terms and Conditions</legend>
+
+                    <label>
+                        <input type="checkbox" name="terms" value="accepted" required>
+                        I agree to the <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a>
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="marketing" value="yes">
+                        I would like to receive promotional offers and updates
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="accurate-info" value="confirmed" required>
+                        I confirm that all information provided is accurate and complete
+                    </label>
+                </fieldset>
+
+                <button type="submit" class="btn-primary">Submit Application</button>
+                <button type="reset" class="btn-secondary">Clear Form</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Sidebar -->
+    <aside>
+        <h2>Why Choose MyFinance?</h2>
+        <ul>
+            <li>No minimum balance fees</li>
+            <li>24/7 online banking access</li>
+            <li>Competitive interest rates</li>
+            <li>Free ATM withdrawals nationwide</li>
+            <li>Dedicated customer support</li>
+        </ul>
+
+        <h3>Need Help?</h3>
+        <p>Contact our support team:</p>
+        <ul>
+            <li>Phone: <a href="tel:+97444001234">+974 4400 1234</a></li>
+            <li>Email: <a href="mailto:apply@myfinance.qa">apply@myfinance.qa</a></li>
+        </ul>
+
+        <h3>Required Documents</h3>
+        <ul>
+            <li>Valid Qatar ID (QID)</li>
+            <li>Proof of address</li>
+            <li>Employment letter (if applicable)</li>
+            <li>Recent passport photo</li>
+        </ul>
+    </aside>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 MyFinance. All rights reserved.</p>
+        <p>
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Terms of Service</a> |
+            <a href="#">Contact Us</a>
+        </p>
+    </footer>
+</body>
+</html>

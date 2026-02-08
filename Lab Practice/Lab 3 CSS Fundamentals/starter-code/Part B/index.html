@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyFinance Dashboard - Lab 3 Solution</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ============================================
+         HEADER
+         ============================================ -->
+    <header>
+        <img src="images/logo.png" alt="MyFinance Logo">
+        <h1>MyFinance Dashboard</h1>
+        <p>Your Personal Finance Management Platform</p>
+    </header>
+
+    <!-- ============================================
+         NAVIGATION
+         ============================================ -->
+    <nav>
+        <a href="index.html" class="active">Dashboard</a>
+        <a href="budget-tracker.html">Budget Tracker</a>
+        <a href="goal-planner.html">Goal Planner</a>
+        <a href="account-application.html">Apply for Account</a>
+    </nav>
+
+    <!-- ============================================
+         MAIN CONTENT
+         ============================================ -->
+    <main>
+        <!-- Financial Overview Section -->
+        <section id="overview">
+            <h2>Financial Overview</h2>
+
+            <article>
+                <h3>Total Balance</h3>
+                <p><strong>45,250 QAR</strong></p>
+                <p>Across all accounts</p>
+            </article>
+
+            <article>
+                <h3>Monthly Income</h3>
+                <p><strong class="text-success">+12,000 QAR</strong></p>
+                <p>This month's earnings</p>
+            </article>
+
+            <article>
+                <h3>Monthly Expenses</h3>
+                <p><strong class="text-danger">-8,500 QAR</strong></p>
+                <p>This month's spending</p>
+            </article>
+
+            <article>
+                <h3>Savings Rate</h3>
+                <p><strong class="text-success">29%</strong></p>
+                <p>Of monthly income saved</p>
+            </article>
+        </section>
+
+        <!-- Accounts Section -->
+        <section id="accounts">
+            <h2>My Accounts</h2>
+
+            <table>
+                <caption>Overview of all your financial accounts</caption>
+                <thead>
+                    <tr>
+                        <th>Account Name</th>
+                        <th>Type</th>
+                        <th>Balance</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Main Checking</td>
+                        <td>Checking</td>
+                        <td>15,250 QAR</td>
+                        <td class="text-success">Active</td>
+                    </tr>
+                    <tr>
+                        <td>Emergency Fund</td>
+                        <td>Savings</td>
+                        <td>20,000 QAR</td>
+                        <td class="text-success">Active</td>
+                    </tr>
+                    <tr>
+                        <td>Vacation Savings</td>
+                        <td>Savings</td>
+                        <td>5,000 QAR</td>
+                        <td class="text-success">Active</td>
+                    </tr>
+                    <tr>
+                        <td>Investment Portfolio</td>
+                        <td>Investment</td>
+                        <td>5,000 QAR</td>
+                        <td class="text-warning">Pending</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2"><strong>Total</strong></td>
+                        <td><strong>45,250 QAR</strong></td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+
+        <!-- Recent Transactions Section -->
+        <section id="transactions">
+            <h2>Recent Transactions</h2>
+
+            <table>
+                <caption>Your last 5 transactions</caption>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2026-01-30</td>
+                        <td>Salary Deposit</td>
+                        <td>Income</td>
+                        <td class="text-success">+12,000 QAR</td>
+                    </tr>
+                    <tr>
+                        <td>2026-01-28</td>
+                        <td>Rent Payment</td>
+                        <td>Housing</td>
+                        <td class="text-danger">-4,500 QAR</td>
+                    </tr>
+                    <tr>
+                        <td>2026-01-25</td>
+                        <td>Grocery Shopping</td>
+                        <td>Food</td>
+                        <td class="text-danger">-850 QAR</td>
+                    </tr>
+                    <tr>
+                        <td>2026-01-22</td>
+                        <td>Electric Bill</td>
+                        <td>Utilities</td>
+                        <td class="text-danger">-320 QAR</td>
+                    </tr>
+                    <tr>
+                        <td>2026-01-20</td>
+                        <td>Coffee Shop</td>
+                        <td>Dining</td>
+                        <td class="text-danger">-45 QAR</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Goals Section -->
+        <section id="goals">
+            <h2>Financial Goals</h2>
+
+            <article>
+                <h3>Emergency Fund</h3>
+                <p><strong>Progress:</strong> 20,000 / 30,000 QAR (67%)</p>
+                <figure>
+                    <img src="images/progress-bar-67.png" alt="Progress bar showing 67% completion">
+                    <figcaption>On track to reach goal by December 2026</figcaption>
+                </figure>
+            </article>
+
+            <article>
+                <h3>Vacation to Maldives</h3>
+                <p><strong>Progress:</strong> 5,000 / 15,000 QAR (33%)</p>
+                <figure>
+                    <img src="images/progress-bar-33.png" alt="Progress bar showing 33% completion">
+                    <figcaption>Target date: Summer 2027</figcaption>
+                </figure>
+            </article>
+
+            <article>
+                <h3>New Car Down Payment</h3>
+                <p><strong>Progress:</strong> 0 / 25,000 QAR (0%)</p>
+                <figure>
+                    <img src="images/progress-bar-0.png" alt="Progress bar showing 0% completion">
+                    <figcaption>Goal created - Start saving next month</figcaption>
+                </figure>
+            </article>
+        </section>
+
+        <!-- Education Section (Multimedia) -->
+        <section id="education">
+            <h2>Financial Education</h2>
+
+            <article>
+                <h3>Understanding Compound Interest</h3>
+                <p>Learn how your money can grow over time through the power of compound interest.</p>
+                <figure>
+                    <video controls poster="images/compound-interest-poster.jpg">
+                        <source src="images/compound-interest.mp4" type="video/mp4">
+                        <source src="images/compound-interest.webm" type="video/webm">
+                        Your browser does not support the video tag.
+                    </video>
+                    <figcaption>Video: The Magic of Compound Interest (5:32)</figcaption>
+                </figure>
+            </article>
+
+            <article>
+                <h3>Weekly Finance Podcast</h3>
+                <p>Listen to this week's episode on budgeting strategies for beginners.</p>
+                <figure>
+                    <audio controls>
+                        <source src="images/finance-podcast-ep1.mp3" type="audio/mpeg">
+                        <source src="images/finance-podcast-ep1.ogg" type="audio/ogg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <figcaption>Episode 1: Budgeting Basics for Beginners</figcaption>
+                </figure>
+            </article>
+        </section>
+    </main>
+
+    <!-- ============================================
+         SIDEBAR
+         ============================================ -->
+    <aside>
+        <h2>Quick Tips</h2>
+
+        <h3>Saving Tips</h3>
+        <ul>
+            <li>Set up automatic transfers to savings</li>
+            <li>Review subscriptions monthly</li>
+            <li>Use the 50/30/20 budgeting rule</li>
+            <li>Track every expense for one month</li>
+        </ul>
+
+        <h3>Useful Resources</h3>
+        <ul>
+            <li><a href="#">Budgeting Calculator</a></li>
+            <li><a href="#">Retirement Planner</a></li>
+            <li><a href="#">Debt Payoff Calculator</a></li>
+            <li><a href="#">Investment Guide</a></li>
+        </ul>
+
+        <h3>Contact Support</h3>
+        <p>Need help? Reach out to us:</p>
+        <ul>
+            <li>Email: <a href="mailto:support@myfinance.qa">support@myfinance.qa</a></li>
+            <li>Phone: <a href="tel:+97444001234">+974 4400 1234</a></li>
+        </ul>
+    </aside>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer>
+        <p>&copy; 2026 MyFinance. All rights reserved.</p>
+        <p>
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Terms of Service</a> |
+            <a href="#">Contact Us</a>
+        </p>
+        <p>Built for CMPS 356 - Web Development Fundamentals at Qatar University</p>
+    </footer>
+</body>
+</html>
