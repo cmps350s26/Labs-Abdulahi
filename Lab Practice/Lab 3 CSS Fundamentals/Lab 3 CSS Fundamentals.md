@@ -14,7 +14,6 @@ College of Engineering - Department of Computer Science and Engineering<br>
 **Theme:** Personal Finance Platform - Part 3 of 11
 **Prerequisites:** Labs 1 and 2 completed
 
-
 ---
 
 ## Overview

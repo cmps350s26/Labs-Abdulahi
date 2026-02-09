@@ -1,0 +1,53 @@
+/* =================================
+   Module 1: CSS Syntax and Linking
+   ================================= */
+
+body {
+    background-color: #f5f5f5;
+}
+
+h1 {
+    color: #333;
+}
+
+p {
+    color: #666;
+}
+
+/* =================================
+   Module 2: CSS Selectors
+   ================================= */
+
+/* ID selector */
+#page-title {
+    color: #2c3e50;
+    font-size: 28px;
+}
+
+/* Class selector */
+.intro {
+    font-style: italic;
+    color: #7f8c8d;
+}
+
+/* Descendant selector */
+nav a {
+    color: #3498db;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+/* =================================
+   Module 3: The Box Model
+   ================================= */
+
+/* TODO: Style the .card element
+   - Set width to 300px
+   - Set padding to 20px
+   - Set margin to 20px
+   - Set border to 1px solid #ddd
+   - Set border-radius to 8px
+   - Set background-color to white
+   - Set box-sizing to border-box
+*/
+

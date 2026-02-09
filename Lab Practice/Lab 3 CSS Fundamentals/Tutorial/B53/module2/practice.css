@@ -1,0 +1,38 @@
+/* =================================
+   Module 1: CSS Syntax and Linking
+   ================================= */
+
+body {
+    background-color: #f5f5f5;
+}
+
+h1 {
+    color: #333;
+}
+
+p {
+    color: #666;
+}
+
+/* =================================
+   Module 2: CSS Selectors
+   ================================= */
+
+/* TODO: Add an ID selector for #page-title
+   - Set color to #2c3e50
+   - Set font-size to 28px
+*/
+
+
+/* TODO: Add a class selector for .intro
+   - Set font-style to italic
+   - Set color to #7f8c8d
+*/
+
+
+/* TODO: Add a descendant selector for nav a
+   - Set color to #3498db
+   - Set text-decoration to none
+   - Set margin-right to 15px
+*/
+

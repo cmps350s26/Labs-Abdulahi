@@ -1,0 +1,31 @@
+/* =================================
+   Module 1: CSS Syntax and Linking
+   ================================= */
+
+/* TODO: Style the body element
+   - Set background-color to #f5f5f5
+*/
+
+/* RuleSet , Block , Declaration*/
+body {
+   background-color: #f5f5f5;
+}
+
+/* TODO: Style all h1 elements
+   - Set color to #333
+*/
+
+h1 {
+   color: #333;
+   font-size: 40px;
+   text-decoration: underline;
+   font-style: italic;
+}
+
+/* TODO: Style all paragraph elements
+   - Set color to #666
+*/
+
+p {
+   color: #666;
+}

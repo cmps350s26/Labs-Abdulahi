@@ -1,0 +1,116 @@
+/* =================================
+   Module 1: CSS Syntax and Linking
+   ================================= */
+
+/* (Module 4 CSS variables and body styles will override Module 1) */
+
+/* =================================
+   Module 2: CSS Selectors
+   ================================= */
+
+/* ID selector */
+#page-title {
+   color: #2c3e50;
+   font-size: 28px;
+}
+
+/* Class selector */
+.intro {
+   font-style: italic;
+   color: #7f8c8d;
+}
+
+/* Descendant selector */
+nav a {
+   color: #3498db;
+   text-decoration: none;
+   margin-right: 15px;
+}
+
+/* =================================
+   Module 3: The Box Model
+   ================================= */
+
+.card {
+   width: 300px;
+   padding: 20px;
+   margin: 20px;
+   border: 1px solid #ddd;
+   border-radius: 8px;
+   background-color: white;
+   box-sizing: border-box;
+}
+
+/* =================================
+   Module 4: Colors and Typography
+   ================================= */
+
+/* TODO: Define CSS custom properties (variables) in :root
+   - --primary-color: #2c3e50
+   - --secondary-color: #3498db
+   - --accent-color: #27ae60
+   - --text-color: #333
+   - --text-muted: #7f8c8d
+   - --bg-color: #f8f9fa
+*/
+:root {
+   --primary-color: #89be5b;
+   --secondary-color: #3498db;
+   --accent-color: #27ae60;
+   --text-color: #333;
+   --text-muted: #7f8c8d;
+   --bg-color: #f8f9fa;
+   --primary-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+   /* CSS HEX */
+   --space-indigo: #3d315bff;
+   --dusk-blue: #444b6eff;
+   --dusty-olive: #708b75ff;
+   --muted-olive: #9ab87aff;
+   --lime-cream: #f8f991ff;
+
+   /* CSS HSL */
+   --space-indigo: hsla(257, 30%, 27%, 1);
+   --dusk-blue: hsla(230, 24%, 35%, 1);
+   --dusty-olive: hsla(131, 11%, 49%, 1);
+   --muted-olive: hsla(89, 30%, 60%, 1);
+   --lime-cream: hsla(61, 90%, 77%, 1);
+
+}
+
+
+/* TODO: Style the body element using variables
+   - Set font-family to 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+   - Set font-size to 16px
+   - Set line-height to 1.6
+   - Set color to var(--text-color)
+   - Set background-color to var(--bg-color)
+*/
+
+body {
+   font-family: var(--primary-font-family);
+   font-size: 16px;
+   line-height: 1.6;
+   color: var(--text-color);
+   background-color: var(--bg-color);
+}
+
+/* TODO: Style headings (h1, h2, h3) using group selector
+   - Set color to var(--primary-color)
+   - Set font-weight to 600
+*/
+
+h1,
+h2,
+h3 {
+   color: var(--primary-color);
+   font-weight: 600;
+}
+
+/* TODO: Style links (a)
+   - Set color to var(--secondary-color)
+*/
+
+nav a {
+   color: var(--secondary-color);
+}

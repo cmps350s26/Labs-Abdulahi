@@ -1,0 +1,171 @@
+/* =================================
+   Module 1: CSS Syntax and Linking
+   ================================= */
+
+/* (Module 4 CSS variables and body styles override Module 1) */
+
+/* =================================
+   Module 2: CSS Selectors
+   ================================= */
+
+/* ID selector */
+#page-title {
+   color: #2c3e50;
+   font-size: 28px;
+}
+
+/* Class selector */
+.intro {
+   font-style: italic;
+   color: #7f8c8d;
+}
+
+/* Descendant selector */
+nav a {
+   color: #3498db;
+   text-decoration: none;
+   margin-right: 15px;
+}
+
+/* =================================
+   Module 3: The Box Model
+   ================================= */
+
+.card {
+   width: 300px;
+   padding: 20px;
+   margin: 20px;
+   border: 1px solid #ddd;
+   border-radius: 8px;
+   background-color: white;
+   box-sizing: border-box;
+}
+
+/* =================================
+   Module 4: Colors and Typography
+   ================================= */
+
+:root {
+   --primary-color: #2c3e50;
+   --secondary-color: #3498db;
+   --accent-color: #27ae60;
+   --text-color: #333;
+   --text-muted: #7f8c8d;
+   --bg-color: #f8f9fa;
+}
+
+body {
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   font-size: 16px;
+   line-height: 1.6;
+   color: var(--text-color);
+   background-color: var(--bg-color);
+}
+
+h1,
+h2,
+h3 {
+   color: var(--primary-color);
+   font-weight: 600;
+}
+
+a {
+   color: var(--secondary-color);
+}
+
+/* =================================
+   Module 5: Backgrounds and Borders
+   ================================= */
+
+.hero-section {
+   background: linear-gradient(135deg, #3498db, #2c3e50);
+   color: white;
+   padding: 60px 20px;
+   text-align: center;
+   border-radius: 0 0 20px 20px;
+}
+
+.hero-section h1 {
+   color: white;
+}
+
+.feature-card {
+   background-color: white;
+   border: 1px solid #e0e0e0;
+   border-left: 4px solid #27ae60;
+   border-radius: 8px;
+   padding: 20px;
+   margin: 15px 0;
+}
+
+/* =================================
+   Module 6: Pseudo-classes and Shadows
+   ================================= */
+
+/* TODO: Style the base .btn class
+   - Set padding to 12px 24px
+   - Set font-size to 16px
+   - Set border to none
+   - Set border-radius to 6px
+   - Set cursor to pointer
+   - Set transition to all 0.3s ease
+*/
+
+.btn {
+   padding: 12px 24px;
+   font-size: 1rem;
+   border: none;
+   border-radius: 6px;
+   cursor: pointer;
+   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+   transition: all 0.5s ease;
+
+}
+
+
+/* TODO: Style .btn-primary
+   - Set background-color to #3498db
+   - Set color to white
+*/
+.btn-primary {
+   background-color: #3498db;
+   color: white;
+}
+
+
+
+
+
+/* TODO: Style .btn-primary:hover
+   - Set background-color to #2980b9
+   - Set box-shadow to 0 4px 8px rgba(52, 152, 219, 0.3)
+   - Set transform to translateY(-2px)
+*/
+
+.btn-primary:hover {
+   background-color: #2980b9;
+   /* box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; */
+   /* box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3); */
+   width: 200px;
+   box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+
+/* TODO: Style .btn-secondary
+   - Set background-color to #ecf0f1
+   - Set color to #333
+*/
+.btn-secondary {
+   background-color: #ecf0f1;
+   color: 333;
+}
+
+/* TODO: Style .btn-secondary:hover
+   - Set background-color to #bdc3c7
+*/
+
+
+/* TODO: Style .btn:focus
+   - Set outline to none
+   - Set box-shadow to 0 0 0 3px rgba(52, 152, 219, 0.4)
+*/
