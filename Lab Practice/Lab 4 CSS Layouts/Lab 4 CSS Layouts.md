@@ -15,7 +15,6 @@ College of Engineering - Department of Computer Science and Engineering<br>
 **Theme:** Personal Finance Platform - Part 4 of 11
 **Prerequisites:** Labs 1, 2, and 3 completed
 
-
 ---
 
 ## Overview
@@ -65,14 +64,13 @@ By the end of this lab, you will be able to:
 
 - Labs 1, 2, and 3 completed (styled MyFinance Dashboard)
 - Understanding of CSS basics (selectors, box model, colors)
-- Text editor and browser ready
 
 ---
 
 ## Getting Started
 
-1. Copy your Lab 3 files to a new folder: `Lab4-CSS-Layouts`
-2. Open your `styles.css` file - you'll add responsive rules
+1. Copy your Lab 4 : `Lab4-CSS-Layouts into your repo`
+2. Open the folder in VS Code
 3. Open browser DevTools and enable device toolbar (responsive mode)
 4. Test at different screen widths as you work
 
