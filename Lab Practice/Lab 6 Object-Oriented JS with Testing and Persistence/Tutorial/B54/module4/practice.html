@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 4: DOM, Events, and LocalStorage</title>
+    <link rel="stylesheet" href="css/practice.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <h1>Module 4: DOM, Events, and LocalStorage</h1>
+            <p>Bring your classes to life in the browser</p>
+        </header>
+
+        <main>
+            <!-- Exercise 1: Render Transactions to DOM -->
+            <section>
+                <h2>Exercise 1: Render Class Instances</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Category</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transaction-table">
+                            <tr><td colspan="3" class="empty-message">No transactions loaded</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Exercise 2: Add Transaction Form + Events -->
+            <section>
+                <h2>Exercise 2: Add Transactions with Events</h2>
+                <form id="transaction-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="desc">Description</label>
+                            <input type="text" id="desc" placeholder="e.g., Lunch" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="amount">Amount (QAR)</label>
+                            <input type="number" id="amount" placeholder="0" min="0" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="type">Type</label>
+                            <select id="type" required>
+                                <option value="income">Income</option>
+                                <option value="expense">Expense</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Transaction</button>
+                </form>
+
+                <div class="dashboard-grid" style="margin-top: 16px;">
+                    <article class="card card--success">
+                        <h3>Total Income</h3>
+                        <p class="amount" id="total-income">0 QAR</p>
+                    </article>
+                    <article class="card card--danger">
+                        <h3>Total Expenses</h3>
+                        <p class="amount" id="total-expenses">0 QAR</p>
+                    </article>
+                    <article class="card">
+                        <h3>Balance</h3>
+                        <p class="amount" id="balance">0 QAR</p>
+                    </article>
+                </div>
+
+                <div class="table-container" style="margin-top: 16px;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody id="live-transaction-body">
+                            <tr><td colspan="3" class="empty-message">No transactions yet</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Exercise 3: LocalStorage Persistence -->
+            <section>
+                <h2>Exercise 3: Persist with LocalStorage</h2>
+                <p class="text-muted">Transactions above should survive page refreshes once you wire up localStorage.</p>
+                <div class="btn-group">
+                    <button id="clear-btn" class="btn btn-danger">Clear All Data</button>
+                    <button id="count-btn" class="btn btn-secondary">Show Saved Count</button>
+                </div>
+                <div id="storage-output" class="output-box" style="margin-top: 16px;">
+                    <p class="placeholder">Storage info will appear here</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Lab 6 - Module 4: DOM, Events, and LocalStorage</p>
+        </footer>
+    </div>
+
+    <script src="js/practice.js"></script>
+</body>
+</html>
