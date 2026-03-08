@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 4: CRUD Operations</title>
+    <link rel="stylesheet" href="css/practice.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <h1>Module 4: CRUD Operations</h1>
+            <p>Create, update, and delete data via a REST API</p>
+        </header>
+
+        <main>
+            <!-- Current Transactions -->
+            <section>
+                <h2>Transaction List</h2>
+                <button id="refresh-btn" class="btn btn-secondary">Refresh</button>
+                <div class="table-container" style="margin-top: 16px;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Description</th>
+                                <th>Amount</th>
+                                <th>Type</th>
+                                <th>Category</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transaction-body">
+                            <tr><td colspan="6" class="empty-message">Click Refresh to load</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Exercise 1: POST -->
+            <section>
+                <h2>Exercise 1: Add Transaction (POST)</h2>
+                <form id="add-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="add-desc">Description</label>
+                            <input type="text" id="add-desc" name="description" placeholder="e.g., Groceries" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="add-amount">Amount (QAR)</label>
+                            <input type="number" id="add-amount" name="amount" placeholder="0" min="0" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="add-type">Type</label>
+                            <select id="add-type" name="type" required>
+                                <option value="expense">Expense</option>
+                                <option value="income">Income</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="add-category">Category</label>
+                            <select id="add-category" name="category" required>
+                                <option value="Food">Food</option>
+                                <option value="Housing">Housing</option>
+                                <option value="Utilities">Utilities</option>
+                                <option value="Transport">Transport</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Shopping">Shopping</option>
+                                <option value="Salary">Salary</option>
+                                <option value="Freelance">Freelance</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Transaction</button>
+                </form>
+                <div id="add-status" class="output-box" style="margin-top: 12px;"></div>
+            </section>
+
+            <!-- Exercise 2: PUT -->
+            <section>
+                <h2>Exercise 2: Edit Transaction (PUT)</h2>
+                <p id="edit-hint">Click the <strong>Edit</strong> button on a row above to populate this form.</p>
+                <form id="edit-form">
+                    <input type="hidden" id="edit-id" name="id">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="edit-desc">Description</label>
+                            <input type="text" id="edit-desc" name="description" placeholder="Updated description" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-amount">Amount (QAR)</label>
+                            <input type="number" id="edit-amount" name="amount" placeholder="0" min="0" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="edit-type">Type</label>
+                            <select id="edit-type" name="type" required>
+                                <option value="expense">Expense</option>
+                                <option value="income">Income</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-category">Category</label>
+                            <select id="edit-category" name="category" required>
+                                <option value="Food">Food</option>
+                                <option value="Housing">Housing</option>
+                                <option value="Utilities">Utilities</option>
+                                <option value="Transport">Transport</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Shopping">Shopping</option>
+                                <option value="Salary">Salary</option>
+                                <option value="Freelance">Freelance</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-primary">Update Transaction</button>
+                        <button type="button" id="cancel-edit-btn" class="btn btn-secondary" style="display: none;">Cancel</button>
+                    </div>
+                </form>
+                <div id="edit-status" class="output-box" style="margin-top: 12px;"></div>
+            </section>
+
+            <!-- Exercise 3: DELETE -->
+            <section>
+                <h2>Exercise 3: Delete Transaction (DELETE)</h2>
+                <p>Click the <strong>Delete</strong> button on any row in the table above.</p>
+                <div id="delete-status" class="output-box" style="margin-top: 12px;"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Lab 7 - Module 4: CRUD Operations</p>
+            <p class="text-muted">API: myfinance-api-bay.vercel.app</p>
+        </footer>
+    </div>
+
+    <script src="js/practice.js"></script>
+</body>
+</html>

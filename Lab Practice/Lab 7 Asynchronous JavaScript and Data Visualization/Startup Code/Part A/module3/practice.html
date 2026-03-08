@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 3: Fetch API</title>
+    <link rel="stylesheet" href="css/practice.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <h1>Module 3: Fetch API</h1>
+            <p>Load data from files and display it</p>
+        </header>
+
+        <main>
+            <!-- Exercise 1: Fetch and Display -->
+            <section>
+                <h2>Exercise 1: Fetch JSON Data</h2>
+                <button id="load-btn" class="btn btn-primary">Load Transactions</button>
+                <div id="status" class="output-box" style="margin-top: 16px;">
+                    <p class="placeholder">Click the button to load data from the API</p>
+                </div>
+                <div class="table-container" style="margin-top: 16px;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Category</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transaction-body">
+                            <tr><td colspan="4" class="empty-message">No data loaded yet</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Exercise 2: Transform and Display -->
+            <section>
+                <h2>Exercise 2: Fetch, Transform, and Summarize</h2>
+                <button id="summary-btn" class="btn btn-primary">Load Summary</button>
+                <div id="summary-cards" class="dashboard-grid" style="margin-top: 16px;">
+                    <p class="placeholder">Click to load and calculate summary from the API</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Lab 7 - Module 3: Fetch API</p>
+            <p class="text-muted">Note: Fetch requires a local server. Use VS Code Live Server extension.</p>
+        </footer>
+    </div>
+
+    <script src="js/practice.js"></script>
+</body>
+</html>
