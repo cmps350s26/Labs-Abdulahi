@@ -57,10 +57,20 @@ function transToHTMLRow(t) {
          <td> ${t.category} </td>
          <td> ${t.type} </td>
          <td class=${amountClass}> ${t.amount} </td>
+         <td>
+            <button onclick="deleteTransaction('${t.id}')" class="btn btn-sm btn-danger">Delete </button>
+         </td>
       </tr>
    `
 }
 
+async function deleteTransaction(id) {
+   const url = `${BASE_URL}/${id}`
+   const config = { method: "DELETE" }
+
+   await fetch(url, config);
+   loadTransactions()
+}
 // ---- Exercise 2: Fetch, Transform, and Summarize ----
 // When #summary-btn is clicked:
 //   1. Fetch https://myfinance-api-bay.vercel.app/transactions

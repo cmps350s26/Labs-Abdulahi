@@ -62,33 +62,7 @@ loadTransactions();
 
 // TODO: Add submit listener on #add-form
 
-const addForm = document.querySelector("#add-form")
 
-addForm.addEventListener('submit', addTransaction)
-
-async function addTransaction(event) {
-    event.preventDefault(); //the page will not refresh
-
-    // get the data from the form and convert it into one trans object
-    const formData = new FormData(event.target);
-    const transaction = Object.fromEntries(formData.entries());
-
-    try {
-        config = {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(transaction)
-        }
-
-        await fetch(API_URL, config) //will add the transaction to the server db
-        loadTransactions()
-
-
-    } catch (e) {
-        console.log(e);
-    }
-
-}
 
 // ---- Exercise 2: PUT - Update a transaction ----
 // The Edit buttons in the table call startEdit(id). Write these functions:
@@ -125,55 +99,6 @@ async function addTransaction(event) {
 
 // TODO: Write startEdit(id)
 
-async function startEdit(id) {
-    // alert('hi')
-    try {
-        const response = await fetch(`${API_URL}/${id}`);
-        const t = await response.json();
-
-        document.querySelector("#edit-id").value = t.id
-        document.querySelector("#edit-desc").value = t.description
-        document.querySelector("#edit-amount").value = t.amount
-        document.querySelector("#edit-type").value = t.type
-        document.querySelector("#edit-category").value = t.category
-
-        document.querySelector("#edit-hint").style.display = "none"
-        document.querySelector("#cancel-edit-btn").style.display = "inline-block"
-
-        document.querySelector("#edit-status").textContent = `Editing transaction ${t.id}: ${t.description}`
-
-    } catch (e) {
-        console.log(e);
-
-    }
-}
-
-const editForm = document.querySelector("#edit-form")
-editForm.addEventListener('submit', editTransaction)
-
-async function editTransaction(event) {
-    event.preventDefault(); //the page will not refresh
-
-    // get the data from the form and convert it into one trans object
-    const formData = new FormData(event.target);
-    const transaction = Object.fromEntries(formData.entries());
-
-    try {
-        config = {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(transaction)
-        }
-
-        await fetch(`${API_URL}/${transaction.id}`, config) //will update the transaction on the server db
-        loadTransactions()
-
-
-    } catch (e) {
-        console.log(e);
-    }
-
-}
 
 // TODO: Write cancelEdit()
 
