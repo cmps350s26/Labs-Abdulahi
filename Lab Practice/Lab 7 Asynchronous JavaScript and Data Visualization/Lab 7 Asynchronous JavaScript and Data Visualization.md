@@ -213,6 +213,7 @@ A `transactions` array is provided. Using that array:
 JavaScript is single-threaded. It can only run one thing at a time. When you need to do something slow (fetch data from an API, read a file, wait for a timer), you can't just block and wait. The entire page would freeze.
 
 JavaScript handles this with **Promises** - objects that represent a value arriving later. A Promise can be:
+
 - **Pending** - still working on it
 - **Fulfilled** - done, here's the result
 - **Rejected** - failed, here's the error
@@ -383,6 +384,7 @@ Open `Startup Code/Part A/module3/practice.html` via Live Server, then edit `js/
 **Exercise 1: Fetch and Display**
 
 When the **Load Transactions** button (`#load-btn`) is clicked:
+
 - Show `"Loading..."` in `#status`
 - Fetch all transactions from the API
 - Render each transaction as a table row in `#transaction-body` (columns: ID, Description, Amount, Type, Category)
@@ -393,6 +395,7 @@ When the **Load Transactions** button (`#load-btn`) is clicked:
 **Exercise 2: Fetch, Transform, and Summarize**
 
 When the **Show Summary** button (`#summary-btn`) is clicked:
+
 - Fetch all transactions from the API
 - Calculate: total income, total expenses, balance (income minus expenses), and transaction count
 - Display as 4 cards in `#summary-cards` using the `dashboard-grid` CSS class
@@ -428,6 +431,7 @@ console.log(created);  // { id: 16, description: "Lunch", amount: 45, ... }
 ```
 
 Three things are different from GET:
+
 1. `method: "POST"` tells the server you're creating data
 2. `headers` tells the server the body is JSON
 3. `body` is the data, converted to a JSON string
@@ -454,13 +458,13 @@ DELETE just needs the method and the ID in the URL. No body or headers needed.
 
 **HTTP Methods Summary**
 
-| Method | Purpose | URL | Body |
-|--------|---------|-----|------|
-| GET | Read all | `/transactions` | None |
-| GET | Read one | `/transactions/3` | None |
-| POST | Create | `/transactions` | JSON data |
-| PUT | Update | `/transactions/3` | JSON data |
-| DELETE | Remove | `/transactions/3` | None |
+| Method | Purpose  | URL                 | Body      |
+| ------ | -------- | ------------------- | --------- |
+| GET    | Read all | `/transactions`   | None      |
+| GET    | Read one | `/transactions/3` | None      |
+| POST   | Create   | `/transactions`   | JSON data |
+| PUT    | Update   | `/transactions/3` | JSON data |
+| DELETE | Remove   | `/transactions/3` | None      |
 
 **Edit Mode Pattern**
 
@@ -493,6 +497,7 @@ The transaction table is already loaded and each row has **Edit** and **Delete**
 **Exercise 1: POST - Add a Transaction**
 
 Add a submit listener on `#add-form` that:
+
 - Reads description, amount, type, and category from the form
 - Sends a POST request to the API with a JSON body
 - Shows `"Created: <description> (ID: <id>)"` in `#add-status`
@@ -502,6 +507,7 @@ Add a submit listener on `#add-form` that:
 **Exercise 2: PUT - Edit a Transaction**
 
 Write these functions:
+
 - `startEdit(id)` - Fetches the transaction by ID (GET), populates the edit form fields (`#edit-desc`, `#edit-amount`, `#edit-type`, `#edit-category`), stores the ID in the hidden `#edit-id` field, hides `#edit-hint`, shows `#cancel-edit-btn`
 - `cancelEdit()` - Resets the form, clears `#edit-id`, shows `#edit-hint`, hides `#cancel-edit-btn`
 - Cancel button click listener - calls `cancelEdit()`
@@ -510,6 +516,7 @@ Write these functions:
 **Exercise 3: DELETE - Remove a Transaction**
 
 Write `deleteTransaction(id)` that:
+
 - Sends a DELETE request to `API_URL + "/" + id`
 - Shows `"Deleted transaction <id>"` in `#delete-status`
 - Refreshes the table
@@ -623,7 +630,6 @@ Wire up the form to support both adding and editing.
 - **Cancel button**: Call `cancelEdit()`
 - **Page load**: Call `loadTransactions()` to fetch initial data
 
-
 ### Testing Checklist
 
 - [ ] Page loads and transactions appear from the API
@@ -644,17 +650,20 @@ Wire up the form to support both adding and editing.
 Check off each skill you're confident in:
 
 ### JSON and Data Transformation
+
 - [ ] I can convert objects to JSON strings and back with `JSON.stringify`/`JSON.parse`
 - [ ] I can transform arrays using `map`, `filter`, and `reduce`
 - [ ] I can group data by category using `reduce` and read it with `Object.entries`
 
 ### Async/Await
+
 - [ ] I can explain why JavaScript uses Promises (single-threaded, non-blocking)
 - [ ] I can use `async`/`await` to consume Promises
 - [ ] I can use `try`/`catch` for error handling with async code
 - [ ] I can run multiple async operations in parallel with `Promise.all`
 
 ### Fetch API
+
 - [ ] I can fetch JSON data from a REST API using the Fetch API
 - [ ] I know why the page needs to be served via Live Server (HTTP, not file://)
 - [ ] I can check `response.ok` and handle HTTP errors
@@ -662,6 +671,7 @@ Check off each skill you're confident in:
 - [ ] I can show loading states while data is being fetched
 
 ### CRUD Operations
+
 - [ ] I can send POST requests with a JSON body to create new data
 - [ ] I can send PUT requests to update existing data by ID
 - [ ] I can send DELETE requests to remove data by ID
@@ -669,6 +679,7 @@ Check off each skill you're confident in:
 - [ ] I understand the difference between POST (create new) and PUT (replace existing)
 
 ### Integration
+
 - [ ] I can build a full CRUD interface with add, edit, and delete functionality
 - [ ] I can wire up search/filter to update the display in real time
 - [ ] I can implement edit mode that toggles a form between add and update
@@ -677,17 +688,17 @@ Check off each skill you're confident in:
 
 ## Common Mistakes
 
-| Mistake | Fix |
-|---------|-----|
-| Fetch fails with CORS error | Serve your HTML via Live Server, not file:// |
-| `response.json()` called without `await` | Both `fetch()` and `.json()` return Promises |
-| POST/PUT missing Content-Type header | Add `headers: { "Content-Type": "application/json" }` |
-| `response.ok` not checked | A 404 doesn't throw, you must check manually |
-| Delete uses array index instead of id | The API uses `id` field, not array position |
-| Data looks wrong after other students changed it | POST to `/reset` to restore original data |
-| `async` function without `await` inside | The function runs synchronously if you forget `await` |
-| PUT sent to wrong URL | Include the ID in the URL: `API_URL + "/" + id` |
-| Body not stringified | Use `JSON.stringify(data)`, not the raw object |
+| Mistake                                          | Fix                                                     |
+| ------------------------------------------------ | ------------------------------------------------------- |
+| Fetch fails with CORS error                      | Serve your HTML via Live Server, not file://            |
+| `response.json()` called without `await`     | Both `fetch()` and `.json()` return Promises        |
+| POST/PUT missing Content-Type header             | Add `headers: { "Content-Type": "application/json" }` |
+| `response.ok` not checked                      | A 404 doesn't throw, you must check manually            |
+| Delete uses array index instead of id            | The API uses `id` field, not array position           |
+| Data looks wrong after other students changed it | POST to `/reset` to restore original data             |
+| `async` function without `await` inside      | The function runs synchronously if you forget `await` |
+| PUT sent to wrong URL                            | Include the ID in the URL:`API_URL + "/" + id`        |
+| Body not stringified                             | Use `JSON.stringify(data)`, not the raw object        |
 
 ---
 
