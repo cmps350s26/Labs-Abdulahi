@@ -83,7 +83,7 @@ Would you like to use ESLint? No
 Would you like to use Tailwind CSS? No
 Would you like your code inside a `src/` directory? No
 Would you like to use App Router? Yes
-Would you like to use Turbopack for next dev? No
+Would you like to use Turbopack for next dev? Yes
 Would you like to customize the import alias? Yes (keep the default @/*)
 ```
 
@@ -246,6 +246,7 @@ The `request` parameter (a standard Web API `Request` object) is passed automati
 **Testing in Postman**
 
 Open Postman and create a new GET request:
+
 - **Method:** GET
 - **URL:** `http://localhost:3000/api/hello`
 - Click Send to see the JSON response.
@@ -272,10 +273,12 @@ Open `app/api/hello/route.js` and complete the exercises:
 Test both handlers in Postman:
 
 **GET `/api/hello`:**
+
 - **Method:** GET
 - **URL:** `http://localhost:3000/api/hello`
 
 **POST `/api/hello`:**
+
 - **Method:** POST
 - **URL:** `http://localhost:3000/api/hello`
 - **Body:** raw > JSON > `{"name": "Ahmed"}`
@@ -373,10 +376,12 @@ Open `app/api/accounts/route.js` and complete the exercises:
 Test both handlers in Postman:
 
 **GET `/api/accounts`:**
+
 - **Method:** GET
 - **URL:** `http://localhost:3000/api/accounts`
 
 **POST `/api/accounts`:**
+
 - **Method:** POST
 - **URL:** `http://localhost:3000/api/accounts`
 - **Body:** raw > JSON > `{"name": "Investment Fund", "type": "savings", "balance": 5000}`
@@ -421,6 +426,7 @@ export async function GET(request, { params }) {
 ```
 
 Two things to note:
+
 1. `params` is a Promise in Next.js 15 - you must `await` it
 2. `id` is always a string from the URL, so use `Number(id)` when comparing to numeric IDs
 
@@ -488,11 +494,11 @@ Open `app/api/accounts/[id]/route.js` and complete all three exercises (GET, PUT
 
 Test in Postman:
 
-| Method | URL | Body (JSON) |
-|--------|-----|-------------|
-| GET | `http://localhost:3000/api/accounts/1` | - |
-| PUT | `http://localhost:3000/api/accounts/1` | `{"name": "Primary Checking", "balance": 16000}` |
-| DELETE | `http://localhost:3000/api/accounts/4` | - |
+| Method | URL                                      | Body (JSON)                                        |
+| ------ | ---------------------------------------- | -------------------------------------------------- |
+| GET    | `http://localhost:3000/api/accounts/1` | -                                                  |
+| PUT    | `http://localhost:3000/api/accounts/1` | `{"name": "Primary Checking", "balance": 16000}` |
+| DELETE | `http://localhost:3000/api/accounts/4` | -                                                  |
 
 ---
 
@@ -577,12 +583,12 @@ Complete the exercises in both `app/api/transactions/route.js` and `app/api/tran
 
 Test in Postman:
 
-| Method | URL | Body (JSON) |
-|--------|-----|-------------|
-| GET | `http://localhost:3000/api/transactions` | - |
-| GET | `http://localhost:3000/api/transactions?type=expense` | - |
-| GET | `http://localhost:3000/api/transactions?type=expense&category=Food` | - |
-| POST | `http://localhost:3000/api/transactions` | `{"description": "Coffee", "amount": 25, "type": "expense", "category": "Food", "accountId": 1}` |
+| Method | URL                                                                   | Body (JSON)                                                                                        |
+| ------ | --------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| GET    | `http://localhost:3000/api/transactions`                            | -                                                                                                  |
+| GET    | `http://localhost:3000/api/transactions?type=expense`               | -                                                                                                  |
+| GET    | `http://localhost:3000/api/transactions?type=expense&category=Food` | -                                                                                                  |
+| POST   | `http://localhost:3000/api/transactions`                            | `{"description": "Coffee", "amount": 25, "type": "expense", "category": "Food", "accountId": 1}` |
 
 > **See It in Action:** Open `http://localhost:3000/client/index.html` in your browser. Click the **Accounts** and **Transactions** tabs - you should see your data rendered by a client app that uses the same `fetch()` patterns from Lab 7. Try adding or deleting a record through the UI.
 
@@ -594,12 +600,12 @@ Test in Postman:
 
 You now have a working API with accounts and transactions from Part A. Time to extend it with two more resources: **budgets** and **goals**.
 
-| Resource | Endpoints | Description |
-|----------|-----------|-------------|
-| Accounts | `/api/accounts` | Bank accounts and balances |
-| Transactions | `/api/transactions` | Income and expense records |
-| **Budgets** | `/api/budgets` | Monthly category budgets |
-| **Goals** | `/api/goals` | Financial savings targets |
+| Resource          | Endpoints             | Description                |
+| ----------------- | --------------------- | -------------------------- |
+| Accounts          | `/api/accounts`     | Bank accounts and balances |
+| Transactions      | `/api/transactions` | Income and expense records |
+| **Budgets** | `/api/budgets`      | Monthly category budgets   |
+| **Goals**   | `/api/goals`        | Financial savings targets  |
 
 Your job is to build the **budgets** and **goals** APIs following the same patterns you used for accounts and transactions. Keep working in the same `myfinance-api` project - your dev server should still be running.
 
@@ -619,9 +625,9 @@ Create `app/api/budgets/route.js`. Write a GET handler that:
 - Returns the array as JSON
 
 Test in Postman:
+
 - **GET** `http://localhost:3000/api/budgets` (all budgets)
 - **GET** `http://localhost:3000/api/budgets?month=March` (filtered)
-
 
 ### Task 2: POST /api/budgets
 
@@ -632,7 +638,6 @@ In the same file, create a POST handler that:
 - Creates a new budget with auto-incremented `id` and `spent: 0`
 - Saves to file and returns with status 201
 
-
 ### Task 3: GET/PUT/DELETE /api/budgets/:id
 
 Create `app/api/budgets/[id]/route.js`. Create handlers for:
@@ -641,11 +646,9 @@ Create `app/api/budgets/[id]/route.js`. Create handlers for:
 - **PUT** - Update budget by ID, return 404 if not found
 - **DELETE** - Remove budget by ID, return `{ message: "Budget deleted" }`
 
-
 ### Task 4: GET /api/goals
 
 Create `app/api/goals/route.js`. Write a GET handler that returns all goals.
-
 
 ### Task 5: POST /api/goals
 
@@ -655,11 +658,9 @@ In the same file, create a POST handler that:
 - Creates a new goal with auto-incremented `id` and `current: 0`
 - Saves and returns with status 201
 
-
 ### Task 6: GET/PUT/DELETE /api/goals/:id
 
 Create `app/api/goals/[id]/route.js`. Create all three handlers following the same pattern you used for accounts and budgets.
-
 
 ## Testing Your API
 
@@ -667,23 +668,23 @@ Use Postman to test each endpoint:
 
 **Budgets:**
 
-| Method | URL | Body (JSON) |
-|--------|-----|-------------|
-| GET | `http://localhost:3000/api/budgets` | - |
-| POST | `http://localhost:3000/api/budgets` | `{"category": "Shopping", "budgeted": 800, "month": "March", "year": 2026}` |
-| GET | `http://localhost:3000/api/budgets/1` | - |
-| PUT | `http://localhost:3000/api/budgets/1` | `{"spent": 4800}` |
-| DELETE | `http://localhost:3000/api/budgets/6` | - |
+| Method | URL                                     | Body (JSON)                                                                   |
+| ------ | --------------------------------------- | ----------------------------------------------------------------------------- |
+| GET    | `http://localhost:3000/api/budgets`   | -                                                                             |
+| POST   | `http://localhost:3000/api/budgets`   | `{"category": "Shopping", "budgeted": 800, "month": "March", "year": 2026}` |
+| GET    | `http://localhost:3000/api/budgets/1` | -                                                                             |
+| PUT    | `http://localhost:3000/api/budgets/1` | `{"spent": 4800}`                                                           |
+| DELETE | `http://localhost:3000/api/budgets/6` | -                                                                             |
 
 **Goals:**
 
-| Method | URL | Body (JSON) |
-|--------|-----|-------------|
-| GET | `http://localhost:3000/api/goals` | - |
-| POST | `http://localhost:3000/api/goals` | `{"name": "New Laptop", "target": 8000, "targetDate": "2026-06-01"}` |
-| GET | `http://localhost:3000/api/goals/1` | - |
-| PUT | `http://localhost:3000/api/goals/1` | `{"current": 15000}` |
-| DELETE | `http://localhost:3000/api/goals/4` | - |
+| Method | URL                                   | Body (JSON)                                                            |
+| ------ | ------------------------------------- | ---------------------------------------------------------------------- |
+| GET    | `http://localhost:3000/api/goals`   | -                                                                      |
+| POST   | `http://localhost:3000/api/goals`   | `{"name": "New Laptop", "target": 8000, "targetDate": "2026-06-01"}` |
+| GET    | `http://localhost:3000/api/goals/1` | -                                                                      |
+| PUT    | `http://localhost:3000/api/goals/1` | `{"current": 15000}`                                                 |
+| DELETE | `http://localhost:3000/api/goals/4` | -                                                                      |
 
 ### Verification Checklist
 
@@ -709,27 +710,32 @@ Use Postman to test each endpoint:
 ## Self-Assessment Checklist
 
 ### Next.js Basics
+
 - [ ] I can explain what Next.js is and why it's used for full-stack apps
 - [ ] I can create a Next.js project with `npx create-next-app` and run it with `npm run dev`
 - [ ] I understand file-based routing (`app/api/hello/route.js` maps to `/api/hello`)
 
 ### API Route Handlers
+
 - [ ] I can create GET handlers that return JSON data
 - [ ] I can create POST handlers that read the request body and validate input
 - [ ] I can return appropriate HTTP status codes (200, 201, 400, 404)
 - [ ] I know the difference between `NextResponse.json(data)` and `NextResponse.json(data, { status: 201 })`
 
 ### Dynamic Routes
+
 - [ ] I can create dynamic routes using `[id]` folders
 - [ ] I can extract the `id` parameter from `params`
 - [ ] I can implement GET, PUT, and DELETE for single resources
 
 ### Data Storage
+
 - [ ] I can read JSON files using `fs.readFile` and `JSON.parse`
 - [ ] I can write JSON files using `fs.writeFile` and `JSON.stringify`
 - [ ] I can auto-increment IDs when creating new records
 
 ### Query Parameters
+
 - [ ] I can read query parameters from the request URL
 - [ ] I can filter results based on query parameters
 
@@ -737,16 +743,16 @@ Use Postman to test each endpoint:
 
 ## Common Mistakes
 
-| Mistake | Fix |
-|---------|-----|
-| `Cannot find module 'next'` | Run `npm install` first |
-| Port 3000 already in use | Stop the previous server with Ctrl+C |
-| `params.id` is undefined | In Next.js 15, await params: `const { id } = await params` |
-| POST body is undefined | Use `await request.json()` - don't forget the `await` |
-| ID comparison fails | `params.id` is a string - use `Number(id)` to compare with numeric IDs |
-| Changes not showing | Next.js has hot reload, but if stuck, restart with `npm run dev` |
-| File write errors | Check that the `data/` folder exists and the JSON file is valid |
-| 404 on valid route | Check folder structure - must be `app/api/accounts/route.js` exactly |
+| Mistake                       | Fix                                                                        |
+| ----------------------------- | -------------------------------------------------------------------------- |
+| `Cannot find module 'next'` | Run `npm install` first                                                  |
+| Port 3000 already in use      | Stop the previous server with Ctrl+C                                       |
+| `params.id` is undefined    | In Next.js 15, await params:`const { id } = await params`                |
+| POST body is undefined        | Use `await request.json()` - don't forget the `await`                  |
+| ID comparison fails           | `params.id` is a string - use `Number(id)` to compare with numeric IDs |
+| Changes not showing           | Next.js has hot reload, but if stuck, restart with `npm run dev`         |
+| File write errors             | Check that the `data/` folder exists and the JSON file is valid          |
+| 404 on valid route            | Check folder structure - must be `app/api/accounts/route.js` exactly     |
 
 ---
 
@@ -754,12 +760,12 @@ Use Postman to test each endpoint:
 
 ### HTTP Methods and Status Codes
 
-| Method | Purpose | Success Code | Common Errors |
-|--------|---------|-------------|---------------|
-| GET | Read data | 200 OK | 404 Not Found |
-| POST | Create data | 201 Created | 400 Bad Request |
-| PUT | Update data | 200 OK | 404 Not Found |
-| DELETE | Remove data | 200 OK | 404 Not Found |
+| Method | Purpose     | Success Code | Common Errors   |
+| ------ | ----------- | ------------ | --------------- |
+| GET    | Read data   | 200 OK       | 404 Not Found   |
+| POST   | Create data | 201 Created  | 400 Bad Request |
+| PUT    | Update data | 200 OK       | 404 Not Found   |
+| DELETE | Remove data | 200 OK       | 404 Not Found   |
 
 ### REST API Route Patterns
 

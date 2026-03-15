@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyFinance Client</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header>
+            <h1>MyFinance</h1>
+            <p>Personal Finance Manager</p>
+        </header>
+
+        <nav class="nav-bar">
+            <a href="#" class="nav-link active" onclick="loadPage('accounts')">Accounts</a>
+            <a href="#" class="nav-link" onclick="loadPage('transactions')">Transactions</a>
+            <a href="#" class="nav-link" onclick="loadPage('budgets')">Budgets</a>
+            <a href="#" class="nav-link" onclick="loadPage('goals')">Goals</a>
+        </nav>
+
+        <main id="main">
+            <!-- Page content will be injected here  -->
+        </main>
+
+        <footer>
+            <p>MyFinance Client - Built with vanilla JS</p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>

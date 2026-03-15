@@ -1,0 +1,44 @@
+<h2>Goals</h2>
+<div class="card form-card">
+    <h3 id="goals-form-title">Add Goal</h3>
+    <form id="goal-form">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="goal-name">Name</label>
+                <input type="text" id="goal-name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="goal-target">Target (QAR)</label>
+                <input type="number" id="goal-target" name="target" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="goal-current">Current (QAR)</label>
+                <input type="number" id="goal-current" name="current" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="goal-targetDate">Target Date</label>
+                <input type="date" id="goal-targetDate" name="targetDate" required>
+            </div>
+        </div>
+        <div class="btn-group">
+            <button type="submit" class="btn btn-primary" id="goals-submit-btn">Add Goal</button>
+            <button type="button" class="btn btn-secondary hidden" id="goals-cancel-btn" onclick="cancelEditGoal()">Cancel</button>
+        </div>
+    </form>
+</div>
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Target (QAR)</th>
+                <th>Current (QAR)</th>
+                <th>Target Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="goals-table-body">
+            <tr><td colspan="5" class="empty-message">Loading...</td></tr>
+        </tbody>
+    </table>
+</div>

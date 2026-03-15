@@ -1,0 +1,43 @@
+<h2>Accounts</h2>
+<div class="card form-card">
+    <h3 id="accounts-form-title">Add Account</h3>
+    <form id="account-form">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="account-name">Name</label>
+                <input type="text" id="account-name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="account-type">Type</label>
+                <select id="account-type" name="type" required>
+                    <option value="checking">Checking</option>
+                    <option value="savings">Savings</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="account-balance">Balance (QAR)</label>
+                <input type="number" id="account-balance" name="balance" step="0.01" required>
+            </div>
+        </div>
+        <div class="btn-group">
+            <button type="submit" class="btn btn-primary" id="accounts-submit-btn">Add Account</button>
+            <button type="button" class="btn btn-secondary hidden" id="accounts-cancel-btn" onclick="cancelEditAccount()">Cancel</button>
+        </div>
+    </form>
+</div>
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Balance (QAR)</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="accounts-table-body">
+            <tr><td colspan="5" class="empty-message">Loading...</td></tr>
+        </tbody>
+    </table>
+</div>

@@ -1,6 +1,30 @@
 [
-    { "id": 1, "name": "Main Checking", "type": "checking", "balance": 15420.50, "status": "active" },
-    { "id": 2, "name": "Savings Account", "type": "savings", "balance": 28750.00, "status": "active" },
-    { "id": 3, "name": "Emergency Fund", "type": "savings", "balance": 10000.00, "status": "active" },
-    { "id": 4, "name": "Old Account", "type": "checking", "balance": 0, "status": "closed" }
+    {
+        "id": 1,
+        "name": "Main Checking",
+        "type": "checking",
+        "balance": 15420.50,
+        "status": "active"
+    },
+    {
+        "id": 2,
+        "name": "Savings Account",
+        "type": "savings",
+        "balance": 28750.00,
+        "status": "active"
+    },
+    {
+        "id": 3,
+        "name": "Emergency Fund",
+        "type": "savings",
+        "balance": 10000.00,
+        "status": "active"
+    },
+    {
+        "id": 4,
+        "name": "Old Account",
+        "type": "checking",
+        "balance": 0,
+        "status": "closed"
+    }
 ]
