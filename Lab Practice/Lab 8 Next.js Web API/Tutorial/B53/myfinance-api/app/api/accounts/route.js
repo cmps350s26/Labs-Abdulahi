@@ -18,25 +18,41 @@ async function writeAccounts(accounts) {
 // /api/account
 
 export async function GET(request, { params }) {
-    //return all the accounts
-    const accounts = await readAccounts()
-    return NextResponse.json(accounts)
+    try {
+        //return all the accounts
+        const accounts = await readAccounts()
+        return NextResponse.json(accounts)
+    } catch (error) {
+        return NextResponse.json({ error: error.message }, { status: 500 })
+    }
 }
 export async function POST(request, { params }) {
-    // i will get a new account from the user
-    const account = await request.json()
+    try {
+        // i will get a new account from the user
+        const account = await request.json()
 
-    // we need to read all the accounts 
-    const accounts = await readAccounts()
+        // YOU CAN VALIDATE THE ACCOUNT OBJECT HERE
+        if (!account.name || !account.balance) {
+            return NextResponse.json({
+                message: "Invalid account data"
+            }, { status: 400 })
+        }
 
-    accounts.push(account)
+        // we need to read all the accounts 
+        const accounts = await readAccounts()
 
-    writeAccounts(accounts)
+        accounts.push(account)
 
-    // i should write this back to the file
+        writeAccounts(accounts)
 
-    //add that account to the list of accounts
-    return NextResponse.json({
-        message: "Added the account successful"
-    })
+        // i should write this back to the file
+
+        //add that account to the list of accounts
+        return NextResponse.json({
+            message: "Added the account successful"
+        })
+    } catch (error) {
+        return NextResponse.json({ error: error.message }, { status: 500 })
+    }
 }
+
