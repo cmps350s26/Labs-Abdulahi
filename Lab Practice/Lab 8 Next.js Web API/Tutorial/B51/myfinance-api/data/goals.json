@@ -1,0 +1,5 @@
+[
+    { "id": 1, "name": "Emergency Fund", "target": 50000, "current": 10000, "targetDate": "2026-12-31" },
+    { "id": 2, "name": "New Car", "target": 120000, "current": 35000, "targetDate": "2027-06-30" },
+    { "id": 3, "name": "Vacation", "target": 15000, "current": 8500, "targetDate": "2026-08-15" }
+]
