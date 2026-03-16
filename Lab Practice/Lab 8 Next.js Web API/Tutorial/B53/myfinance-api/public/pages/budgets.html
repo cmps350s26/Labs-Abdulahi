@@ -1,0 +1,60 @@
+<h2>Budgets</h2>
+<div class="card form-card">
+    <h3 id="budgets-form-title">Add Budget</h3>
+    <form id="budget-form">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="budget-category">Category</label>
+                <select id="budget-category" name="category" required>
+                    <option value="">-- Select Category --</option>
+                    <option value="Housing">Housing</option>
+                    <option value="Food">Food</option>
+                    <option value="Transport">Transport</option>
+                    <option value="Utilities">Utilities</option>
+                    <option value="Entertainment">Entertainment</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="budget-budgeted">Budgeted (QAR)</label>
+                <input type="number" id="budget-budgeted" name="budgeted" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="budget-spent">Spent (QAR)</label>
+                <input type="number" id="budget-spent" name="spent" step="0.01" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="budget-month">Month</label>
+                <input type="text" id="budget-month" name="month" placeholder="e.g. March" required>
+            </div>
+            <div class="form-group">
+                <label for="budget-year">Year</label>
+                <input type="number" id="budget-year" name="year" required>
+            </div>
+        </div>
+        <div class="btn-group">
+            <button type="submit" class="btn btn-primary" id="budgets-submit-btn">Add Budget</button>
+            <button type="button" class="btn btn-secondary hidden" id="budgets-cancel-btn"
+                onclick="cancelEditBudget()">Cancel</button>
+        </div>
+    </form>
+</div>
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Budgeted (QAR)</th>
+                <th>Spent (QAR)</th>
+                <th>Month/Year</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="budgets-table-body">
+            <tr>
+                <td colspan="5" class="empty-message">Loading...</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

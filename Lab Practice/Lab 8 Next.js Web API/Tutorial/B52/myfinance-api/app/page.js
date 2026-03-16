@@ -9,3 +9,7 @@ export default function Home() {
     </>
   );
 }
+
+// chat gpt
+// human [user interface]
+// other apps [api end point]

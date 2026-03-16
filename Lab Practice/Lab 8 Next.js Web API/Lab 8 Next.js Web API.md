@@ -390,7 +390,7 @@ Refresh the GET endpoint to verify the new account appears.
 
 ---
 
-## Module 3: Dynamic Routes - Single Resource Operations (15 minutes)
+## (15 minutes)
 
 ### Instructor Demo (7 minutes)
 

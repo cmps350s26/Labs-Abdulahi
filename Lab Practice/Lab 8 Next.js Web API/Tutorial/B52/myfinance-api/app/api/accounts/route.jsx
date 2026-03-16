@@ -17,8 +17,23 @@ async function writeAccounts(accounts) {
 
 
 export async function GET(request, { params }) {
+    // http://localhost:3001/api/accounts? 
+    // type=savings&status=active  [search params]
+    // put it into a map
+    // it will be like { type: "savings", status: "active" }
+    const { searchParams } = new URL(request.url)
+    const type = searchParams.get("type")
+    const status = searchParams.get("status")
+
+
     const accounts = await readAccounts()
-    return NextResponse.json(accounts)
+
+    if (!type || !status) {
+        return NextResponse.json(accounts)
+    }
+
+    const filteredAccounts = accounts.filter(a => a.type == type && a.status == status)
+    return NextResponse.json(filteredAccounts)
 }
 
 // adding a new data
@@ -27,7 +42,7 @@ export async function POST(request, { params }) {
     const account = await request.json()
 
     // we did not check if this account isa a valid account
-    
+
 
     // read the data we have in our json file
     const accounts = await readAccounts()
