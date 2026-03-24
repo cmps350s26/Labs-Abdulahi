@@ -7,13 +7,6 @@
         "status": "active"
     },
     {
-        "id": 2,
-        "name": "Savings Account",
-        "type": "savings",
-        "balance": 28750,
-        "status": "active"
-    },
-    {
         "id": 3,
         "name": "Emergency Fund",
         "type": "savings",
