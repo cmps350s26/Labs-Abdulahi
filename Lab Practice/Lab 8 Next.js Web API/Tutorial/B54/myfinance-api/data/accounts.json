@@ -1,8 +1,8 @@
 [
     {
         "id": 1,
-        "name": "Main Checking",
-        "type": "checking",
+        "name": "Main Saving",
+        "type": "savings",
         "balance": 15420.5,
         "status": "active"
     },
