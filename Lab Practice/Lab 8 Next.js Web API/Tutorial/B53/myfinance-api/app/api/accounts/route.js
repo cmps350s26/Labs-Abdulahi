@@ -36,7 +36,6 @@ export async function GET(request, { params }) {
 
         const filteredAccounts = accounts.filter(
             a => a.type == type && a.status == status)
-
         return NextResponse.json(filteredAccounts)
 
     } catch (error) {
