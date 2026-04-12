@@ -6,20 +6,17 @@ export default function TransactionsPage() {
     const [transactions, setTransactions] = useState([]);
     const [filterType, setFilterType] = useState("all");
 
-    async function loadTransactions(type = "all") {
-        const url = type === "all" ? "/api/transactions" : `/api/transactions?type=${type}`;
-        const res = await fetch(url);
-        const data = await res.json();
-        setTransactions(data);
-    }
     useEffect(() => {
+        async function loadTransactions() {
+            const url = filterType === "all"
+                ? "/api/transactions"
+                : `/api/transactions?type=${filterType}`;
+            const res = await fetch(url);
+            const data = await res.json();
+            setTransactions(data);
+        }
         loadTransactions();
-    }, []);
-
-    function handleTypeChange(type) {
-        setFilterType(type);
-        loadTransactions(type);
-    }
+    }, [filterType]);
 
     return (
         <main className="page">
@@ -30,7 +27,7 @@ export default function TransactionsPage() {
                 <select
                     id="type-filter"
                     value={filterType}
-                    onChange={e => handleTypeChange(e.target.value)}
+                    onChange={(e) => setFilterType(e.target.value)}
                 >
                     <option value="all">All</option>
                     <option value="income">Income</option>

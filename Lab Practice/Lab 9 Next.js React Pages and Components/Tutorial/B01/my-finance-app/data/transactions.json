@@ -1,0 +1,10 @@
+[
+    { "id": 1, "description": "Monthly Salary", "amount": 12000, "type": "income", "category": "Salary", "date": "2026-03-01" },
+    { "id": 2, "description": "Apartment Rent", "amount": 4500, "type": "expense", "category": "Housing", "date": "2026-03-02" },
+    { "id": 3, "description": "Grocery Shopping", "amount": 850, "type": "expense", "category": "Food", "date": "2026-03-03" },
+    { "id": 4, "description": "Electricity Bill", "amount": 320, "type": "expense", "category": "Utilities", "date": "2026-03-05" },
+    { "id": 5, "description": "Freelance Project", "amount": 3500, "type": "income", "category": "Salary", "date": "2026-03-07" },
+    { "id": 6, "description": "Dining Out", "amount": 400, "type": "expense", "category": "Food", "date": "2026-03-10" },
+    { "id": 7, "description": "Bus Pass", "amount": 150, "type": "expense", "category": "Transport", "date": "2026-03-12" },
+    { "id": 8, "description": "Phone Bill", "amount": 120, "type": "expense", "category": "Utilities", "date": "2026-03-15" }
+]

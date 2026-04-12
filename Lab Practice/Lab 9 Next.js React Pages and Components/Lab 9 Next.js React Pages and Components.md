@@ -429,6 +429,18 @@ Server Components are great for static data. But what about interactivity? Filte
 
 Add `"use client"` at the top of the file. Now you can use React hooks like `useState` and `useEffect`.
 
+Instead of fetching every transaction and filtering in the browser, we'll let the API do the filtering. The route at `app/api/transactions/route.js` already reads a `type` query parameter:
+
+```
+/api/transactions                 → all transactions
+/api/transactions?type=income     → only income
+/api/transactions?type=expense    → only expenses
+```
+
+Try those URLs in the browser to confirm.
+
+Now the trick: we want `useEffect` to **re-run every time the filter changes**, not just on mount. That's what the dependency array is for — `[filterType]` means "re-run whenever `filterType` changes."
+
 ```jsx
 "use client";
 
@@ -440,16 +452,15 @@ export default function TransactionsPage() {
 
     useEffect(() => {
         async function loadTransactions() {
-            const res = await fetch("/api/transactions");
+            const url = filterType === "all"
+                ? "/api/transactions"
+                : `/api/transactions?type=${filterType}`;
+            const res = await fetch(url);
             const data = await res.json();
             setTransactions(data);
         }
         loadTransactions();
-    }, []);
-
-    const filtered = filterType === "all"
-        ? transactions
-        : transactions.filter((t) => t.type === filterType);
+    }, [filterType]); // re-run when filterType changes
 
     return (
         <main className="page">
@@ -480,7 +491,7 @@ export default function TransactionsPage() {
                         </tr>
                     </thead>
                     <tbody>
-                        {filtered.map((t) => (
+                        {transactions.map((t) => (
                             <tr key={t.id}>
                                 <td>{t.description}</td>
                                 <td>{t.category}</td>
@@ -503,24 +514,27 @@ Walk through it:
 
 1. `"use client"` marks this as a Client Component
 2. `useState([])` creates state that starts empty
-3. `useEffect(..., [])` runs once after the first render. We define an inner `async` function for the fetch (using the async/await you learned in Lab 7), then call it. We can't make `useEffect`'s callback itself `async` because React expects that callback to return either nothing or a cleanup function, not a Promise.
-4. Every state update re-renders the component
-5. Changing the filter dropdown updates `filterType`, which re-filters the array, which re-renders the table
+3. `useEffect(..., [filterType])` runs once after the first render **and every time `filterType` changes**. We define an inner `async` function for the fetch (using the async/await you learned in Lab 7), then call it. We can't make `useEffect`'s callback itself `async` because React expects that callback to return either nothing or a cleanup function, not a Promise.
+4. The URL is built from `filterType`: `/api/transactions` for "all", `/api/transactions?type=income` otherwise
+5. Changing the dropdown updates `filterType` → React re-runs the effect → new fetch with a new query param → `setTransactions` re-renders the table
+6. No local `.filter()` call. The server already returned exactly the rows we want.
 
-This is how React handles interactivity. State drives the UI.
+This is how React handles interactivity. State drives the UI — and here, state drives the URL we fetch.
 
 ### Your Turn (8 minutes)
 
 Create a new file at `app/transactions/page.jsx`:
 1. Add `"use client"` at the top
 2. Import `useState, useEffect` from `"react"`
-3. Create state for transactions and filterType
-4. Fetch transactions in useEffect from `/api/transactions`
-5. Compute `filtered` based on filterType
-6. Render the filter dropdown
-7. Map over `filtered` (not `transactions`) in the table body
+3. Create state for `transactions` and `filterType`
+4. Inside `useEffect`, build the URL based on `filterType`:
+   - `"all"` → `/api/transactions`
+   - otherwise → `` `/api/transactions?type=${filterType}` ``
+5. Pass `[filterType]` as the dependency array
+6. Render the filter dropdown with `value={filterType}` and `onChange={setFilterType}`
+7. Map over `transactions` directly in the table body (no local filtering)
 
-Visit `/transactions`. The filter dropdown should work. Selecting "Income" shows only income rows. Compare to `http://localhost:3000/client/pages/transactions.html` - it should look and behave the same.
+Visit `/transactions`. Open the browser **Network tab** — every time you change the dropdown you should see a fresh request to `/api/transactions?type=...`. Compare to `http://localhost:3000/client/pages/transactions.html` - same behavior, but now the server does the filtering.
 
 ---
 
