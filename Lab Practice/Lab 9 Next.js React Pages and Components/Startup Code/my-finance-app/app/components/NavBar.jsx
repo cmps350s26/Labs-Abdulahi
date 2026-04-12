@@ -3,9 +3,9 @@ import Link from 'next/link'
 
 function NavBar() {
     return (
-        <nav class="navbar">
-            <span class="brand">MyFinance</span>
-            <ul class="nav-links">
+        <nav className={"navbar"}>
+            <span className="brand">MyFinance</span>
+            <ul className="nav-links">
                 <li><Link href={"/"}>Dashboard</Link></li>
                 <li><Link href={"/transactions"}>Transactions</Link></li>
                 <li><Link href={"/budgets"}>Budgets</Link></li>
@@ -15,3 +15,4 @@ function NavBar() {
 }
 
 export default NavBar
+
