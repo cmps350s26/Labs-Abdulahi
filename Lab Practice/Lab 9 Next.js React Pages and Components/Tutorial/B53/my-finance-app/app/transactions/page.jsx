@@ -1,25 +1,55 @@
 // rfce
 'use client'
+import TransactionRow from '@/components/TransactionRow';
 import React, { useEffect, useState } from 'react'
 
 function Transactions() {
+    const [transactions, setTransactions] = useState([]);
+    const [type, setType] = useState('all')
 
-    const [counter, setCounter] = useState(0);
-
-    function incrementCounter() {
-        setCounter(counter + 1);
-        console.log("Incrementing Counter", counter);
+    async function fetchTransactions(type) {
+        const url = type == "all" ? "/api/transactions" : `/api/transactions?type=${type}`
+        const data = await fetch(url)
+        const newTransactions = await data.json()
+        setTransactions(newTransactions)
     }
 
     useEffect(() => {
-        console.log("counter updated")
-    }, [counter])
+        fetchTransactions(type)
+    }, [type])
 
     return (
-        <div>
-            <button className={"btn"} onClick={(e) => incrementCounter()}>Increment</button>
-            <h1>Transactions Page Is Loaded {counter}</h1>
-        </div>
+        <>
+            <main class="page">
+                <h1>Transactions</h1>
+                <div class="filter-bar">
+                    <label for="type-filter">Filter by type:</label>
+                    <select id="type-filter" onChange={e => setType(e.target.value)}>
+                        <option value="all" >All</option>
+                        <option value="income" >Income</option>
+                        <option value="expense" >Expense</option>
+                    </select>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Category</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {transactions.map(t => <TransactionRow transaction={t}></TransactionRow>)}
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+        </>
     )
 }
 

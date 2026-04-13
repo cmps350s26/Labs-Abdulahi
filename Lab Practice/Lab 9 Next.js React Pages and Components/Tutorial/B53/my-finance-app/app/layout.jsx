@@ -24,6 +24,7 @@ export default function RootLayout({ children }) {
       <body>
         <NavBar title={"My Finance"} extra={"Some Extra"}></NavBar>
         {children}
+
       </body>
     </html>
   );
