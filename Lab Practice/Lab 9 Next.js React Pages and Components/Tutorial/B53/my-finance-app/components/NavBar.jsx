@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import React from 'react'
 
-function NavBar() {
+function NavBar({ title, extra }) {
     return (
-        <nav class="navbar">
-            <span class="brand">MyFinance</span>
+        <nav className="navbar">
+
+            <span class="brand">{title}</span>
             <ul class="nav-links">
                 <li><Link href="/">Dashboard</Link></li>
                 <li><Link href="/transactions">Transactions</Link></li>
