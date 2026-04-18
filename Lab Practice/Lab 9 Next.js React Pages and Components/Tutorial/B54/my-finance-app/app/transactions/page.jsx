@@ -17,7 +17,9 @@ function Transactions() {
         setTransactions(data)
     }
 
-    useEffect(() => fetchTransactions(type), [type])
+    useEffect(() => {
+        fetchTransactions(type)
+    }, [type])
 
 
     return (
@@ -26,7 +28,7 @@ function Transactions() {
 
             <div className="filter-bar">
                 <label htmlFor="type-filter">Filter by type:</label>
-                <select id="type-filter" onChange={e => setType(e.target.value)}>
+                <select id="type-filter" value={type} onChange={e => setType(e.target.value)}>
                     <option value="all">All</option>
                     <option value="income">Income</option>
                     <option value="expense">Expense</option>
