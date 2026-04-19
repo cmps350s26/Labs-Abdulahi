@@ -4,10 +4,16 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import BudgetCard from "@/app/components/BudgetCard.jsx";
 // TODO 8a: Import deleteBudgetAction from "@/app/actions/budgetActions"
+import { deleteBudgetAction } from "@/app/actions/budgetActions";
 
 export default function BudgetsPage() {
     const [budgets, setBudgets] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
+
+    async function handleDelete(id) {
+        await deleteBudgetAction(id)
+        await loadBudgets()
+    }
 
     async function loadBudgets() {
         const res = await fetch("/api/budgets");
@@ -48,7 +54,7 @@ export default function BudgetsPage() {
             <div className="dashboard-grid">
                 {filtered.map(budget => (
                     // TODO 8c: Pass onDelete={handleDelete} to BudgetCard
-                    <BudgetCard key={budget.id} budget={budget} />
+                    <BudgetCard key={budget.id} budget={budget} onDelete={handleDelete} />
                 ))}
             </div>
         </main>

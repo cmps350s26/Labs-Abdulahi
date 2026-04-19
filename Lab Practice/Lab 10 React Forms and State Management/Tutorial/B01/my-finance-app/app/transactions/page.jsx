@@ -61,19 +61,7 @@ export default function TransactionsPage() {
                     </thead>
                     <tbody>
                         {transactions.map(t => (
-                            <tr key={t.id}>
-                                <td>{t.description}</td>
-                                <td>{t.category}</td>
-                                <td><span className={`badge badge--${t.type}`}>{t.type}</span></td>
-                                <td className={t.type === "income" ? "text-success" : "text-danger"}>
-                                    {t.type === "income" ? "+" : "-"}{t.amount.toLocaleString()} QAR
-                                </td>
-                                <td>{t.date}</td>
-                                <td>
-                                    <Link href={{ pathname: "/transactions/form", query: t }} className="btn btn--small btn--primary">Edit</Link>
-                                    <button className="btn btn--small btn--danger" onClick={() => handleDelete(t.id)}>Delete</button>
-                                </td>
-                            </tr>
+                            <></>
                         ))}
                     </tbody>
                 </table>
