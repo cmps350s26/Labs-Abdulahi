@@ -11,19 +11,22 @@ const months = [
 ];
 
 export default function BudgetFormPage() {
-    const budget = null;  // TODO 10a: Replace with Object.fromEntries(useSearchParams().entries())
-    const isEdit = false; // TODO 10b: Replace with !!budget.id
-    const action = null;  // TODO 10c: Replace with isEdit ? updateBudgetAction : createBudgetAction
+    const searchParams = useSearchParams()
+    const budget = Object.fromEntries(searchParams);  // TODO 10a: Replace with Object.fromEntries(useSearchParams().entries())
+    const isEdit = !!budget.id; // TODO 10b: Replace with !!budget.id
+    const action = isEdit ? updateBudgetAction : createBudgetAction;  // TODO 10c: Replace with isEdit ? updateBudgetAction : createBudgetAction
     // TODO 10d: Wire useActionState: const [error, formAction, isPending] = useActionState(action, {})
+    const [error, formAction, isPending] = useActionState(action, {})
 
     return (
         <main className="page">
+
             {/* TODO 10e: Change to {isEdit ? "Edit" : "Add"} Budget */}
-            <h1>Add Budget</h1>
+            <h1>{isEdit ? 'Edit' : 'Add'} Budget</h1>
             <div className="form-container">
                 {/* TODO 10d: Pass the server action to the form: action={action} */}
-                <form>
-                    {isEdit && <input type="hidden" name="id" value={budget.id} />}
+                <form action={formAction}>
+                    {isEdit && <input name="id" hidden value={budget.id} />}
                     <div className="form-group">
                         <label htmlFor="category">Category</label>
                         <select id="category" name="category" defaultValue={budget?.category || "Food"}>

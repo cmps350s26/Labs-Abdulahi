@@ -20,11 +20,16 @@ export default function BudgetCard({ budget, onDelete }) {
             <p className="text-muted">{percentage}% used</p>
             <div className="card-actions">
                 {/* TODO 9a: Add href={{ pathname: "/budgets/form", query: budget }} to this Link */}
-                <Link href="" className="btn btn--small btn--primary">Edit</Link>
+                <Link href={
+                    {
+                        pathname: "/budgets/form",
+                        query: budget
+                    }
+                } className="btn btn--small btn--primary">Edit</Link>
                 {onDelete && (
                     // TODO 9b: Add onClick={() => onDelete(budget.id)} to this button
-                    <button className="btn btn--small btn--danger" 
-                    onClick={() => onDelete(budget.id)}>
+                    <button className="btn btn--small btn--danger"
+                        onClick={() => onDelete(budget.id)}>
                         Delete
                     </button>
                 )}
