@@ -23,7 +23,8 @@ export default function BudgetCard({ budget, onDelete }) {
                 <Link href="" className="btn btn--small btn--primary">Edit</Link>
                 {onDelete && (
                     // TODO 9b: Add onClick={() => onDelete(budget.id)} to this button
-                    <button className="btn btn--small btn--danger">
+                    <button className="btn btn--small btn--danger" 
+                    onClick={() => onDelete(budget.id)}>
                         Delete
                     </button>
                 )}
