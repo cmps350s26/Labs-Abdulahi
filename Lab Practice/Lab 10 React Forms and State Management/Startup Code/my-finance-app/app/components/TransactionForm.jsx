@@ -1,34 +1,37 @@
 "use client";
 
+import { useActionState } from "react";
 import { useSearchParams } from "next/navigation";
 import { createTransactionAction, updateTransactionAction } from "@/app/actions/transactionActions";
 import Link from "next/link";
 
 export default function TransactionForm() {
-    const searchParams = useSearchParams();
-    const params = Object.fromEntries(searchParams.entries());
-    const transaction = params.id
-        ? { ...params, id: Number(params.id), amount: Number(params.amount) }
-        : null;
-
-    const isEdit = !!transaction;
-    const action = isEdit ? updateTransactionAction : createTransactionAction;
+    const transaction = null;  // TODO: Replace with Object.fromEntries(useSearchParams().entries()) + coerce id/amount
+    const isEdit = false;      // TODO: Replace with !!transaction
+    const action = null;       // TODO: Replace with isEdit ? updateTransactionAction : createTransactionAction
+    // TODO: Wire useActionState: const [error, formAction, isPending] = useActionState(action, {});
 
     return (
         <main className="page">
-            <h1>{isEdit ? "Edit" : "Add"} Transaction</h1>
+            {/* TODO: Change to {isEdit ? "Edit" : "Add"} Transaction */}
+            <h1>Add Transaction</h1>
             <div className="form-container">
-                <form action={action}>
+                {/* TODO: Pass the server action to the form: action={formAction} */}
+                <form>
                     {isEdit && <input type="hidden" name="id" value={transaction.id} />}
                     <div className="form-group">
                         <label htmlFor="description">Description</label>
+                        {/* TODO: Add className={error?.description ? "input-error" : ""} to this input */}
                         <input id="description" name="description" type="text" placeholder="e.g. Grocery Shopping"
                             defaultValue={transaction?.description || ""} />
+                        {/* TODO: Add error display: {error?.description && <p className="error-message">{error.description}</p>} */}
                     </div>
                     <div className="form-group">
                         <label htmlFor="amount">Amount (QAR)</label>
+                        {/* TODO: Add className={error?.amount ? "input-error" : ""} to this input */}
                         <input id="amount" name="amount" type="number" min="0" step="0.01" placeholder="0.00"
                             defaultValue={transaction?.amount || ""} />
+                        {/* TODO: Add error display: {error?.amount && <p className="error-message">{error.amount}</p>} */}
                     </div>
                     <div className="form-group">
                         <label htmlFor="type">Type</label>
@@ -52,9 +55,12 @@ export default function TransactionForm() {
                     <div className="form-group">
                         <label htmlFor="date">Date</label>
                         <input id="date" name="date" type="date"
-                            defaultValue={transaction?.date || new Date().toISOString().split("T")[0]} />
+                            defaultValue={transaction?.date || new Date().toISOString().split("T")[0]}
+                            className={error?.date ? "input-error" : ""} />
+                        {error?.date && <p className="error-message">{error.date}</p>}
                     </div>
                     <div className="form-actions">
+                        {/* TODO: Add disabled={isPending} and show "Saving..." when pending */}
                         <button type="submit" className="btn btn--primary">
                             {isEdit ? "Save Changes" : "Add Transaction"}
                         </button>

@@ -1,55 +1,49 @@
-# Module 3: Form Submission and API Integration
+# Module 3: Delete Server Action + Wiring
 
 ## Key Concept
 
-When the user submits a form, you need to:
+Delete actions take an `id` directly (not FormData). You call them as regular functions from client components. Use `deleteId` state to show a confirmation dialog before deleting.
 
-1. **Prevent the default** browser behavior (which would reload the page)
-2. **Send the data** to your API with `fetch`
-3. **Handle the response** (success or error)
-4. **Give feedback** to the user
-
-```jsx
-async function handleSubmit(e) {
-    e.preventDefault();  // Stop page reload
-    const response = await fetch("/api/transactions", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, type, balance: Number(balance) })
-    });
+```js
+export async function deleteTransactionAction(id) {
+    await transactionsRepo.delete(id);
+    revalidatePath("/");
 }
 ```
 
-## Loading State
-
-While the request is in flight, disable the submit button and change its text:
+On the list page:
 ```jsx
-const [submitting, setSubmitting] = useState(false);
+const [deleteId, setDeleteId] = useState(null);
 
-<button disabled={submitting}>
-    {submitting ? "Creating..." : "Create Account"}
-</button>
+async function handleDelete(id) {
+    await deleteTransactionAction(id);
+    setDeleteId(null);
+    await loadTransactions();
+}
 ```
 
-## Navigation After Success
-
-Use Next.js `useRouter` to redirect:
-```jsx
-import { useRouter } from "next/navigation";
-const router = useRouter();
-router.push("/accounts");  // Navigate to transactions page
-```
+The Delete button sets `deleteId` → dialog shows → Confirm calls `handleDelete` → Cancel resets `deleteId`.
 
 ## Exercises
 
-Open `app/transactions/new/page.jsx` and complete TODOs 1-8.
+**TODOs 3a-3b** in `app/actions/transactionActions.js`:
+1. `await transactionsRepo.delete(id)`
+2. `revalidatePath("/")`
+
+**TODOs 4a-4e** in `app/transactions/page.jsx`:
+1. Import `deleteTransactionAction`
+2. Add `deleteId` state
+3. Create `handleDelete` function
+4. Change Delete button to `onClick={() => setDeleteId(t.id)}`
+5. Uncomment the confirmation dialog
 
 ## Expected Result
 
-Fill out the form and submit. You should see "Account created!" briefly, then get redirected to the transactions page where your new transaction appears.
+Click Delete → dialog appears → Confirm removes the transaction → Cancel closes the dialog.
 
 ## Self-Check
 
-- Does the button show "Creating..." while submitting?
-- Does a new transaction appear on the transactions page?
-- Check `data/transactions.json` - is the new transaction there?
+- Does the dialog appear when you click Delete?
+- Does Cancel close the dialog without deleting?
+- Does the transaction disappear after confirming?
+- Does the Dashboard update? (revalidatePath("/") refreshes it)

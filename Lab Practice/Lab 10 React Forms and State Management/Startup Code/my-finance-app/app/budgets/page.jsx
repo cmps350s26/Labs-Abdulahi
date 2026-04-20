@@ -8,6 +8,7 @@ import BudgetCard from "@/app/components/BudgetCard.jsx";
 export default function BudgetsPage() {
     const [budgets, setBudgets] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
+    // TODO 8d: Add state for deleteId: const [deleteId, setDeleteId] = useState(null);
 
     async function loadBudgets() {
         const res = await fetch("/api/budgets");
@@ -21,7 +22,8 @@ export default function BudgetsPage() {
 
     // TODO 8b: Create handleDelete(id) that:
     //   1. Calls await deleteBudgetAction(id)
-    //   2. Calls await loadBudgets() to refresh the list
+    //   2. Sets deleteId back to null
+    //   3. Calls await loadBudgets() to refresh the list
 
     const filtered = budgets.filter(b =>
         b.category.toLowerCase().includes(searchTerm.toLowerCase())
@@ -47,10 +49,25 @@ export default function BudgetsPage() {
 
             <div className="dashboard-grid">
                 {filtered.map(budget => (
-                    // TODO 8c: Pass onDelete={handleDelete} to BudgetCard
+                    // TODO 8c: Pass onDelete={setDeleteId} to BudgetCard
                     <BudgetCard key={budget.id} budget={budget} />
                 ))}
             </div>
+
+            {/* TODO 8e: Add confirmation dialog (same pattern as transactions page):
+                {deleteId && (
+                    <div className="confirm-overlay">
+                        <div className="confirm-dialog">
+                            <h3>Delete Budget</h3>
+                            <p>Are you sure? This action cannot be undone.</p>
+                            <div className="form-actions">
+                                <button className="btn btn--danger" onClick={() => handleDelete(deleteId)}>Delete</button>
+                                <button className="btn btn--primary" onClick={() => setDeleteId(null)}>Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                )}
+            */}
         </main>
     );
 }

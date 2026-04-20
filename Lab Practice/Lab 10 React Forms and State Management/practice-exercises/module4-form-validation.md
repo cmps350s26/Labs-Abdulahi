@@ -1,53 +1,50 @@
-# Module 4: Form Validation
+# Module 4: Wiring the Form Component
 
 ## Key Concept
 
-Client-side validation catches errors before sending data to the server. The pattern:
-
-1. Create a `validate()` function that returns an errors object
-2. Call it in `handleSubmit` before the fetch
-3. If there are errors, show them and stop
+The form component uses `useSearchParams` to detect add vs edit mode, and `useActionState` to wire the server action and get validation errors back.
 
 ```jsx
-function validate() {
-    const newErrors = {};
-    if (!name.trim()) newErrors.name = "Account name is required";
-    if (Number(balance) < 0) newErrors.balance = "Balance cannot be negative";
-    return newErrors;
-}
+const searchParams = useSearchParams();
+const params = Object.fromEntries(searchParams.entries());
+const transaction = params.id
+    ? { ...params, id: Number(params.id), amount: Number(params.amount) }
+    : null;
+
+const isEdit = !!transaction;
+const action = isEdit ? updateTransactionAction : createTransactionAction;
+const [error, formAction, isPending] = useActionState(action, {});
 ```
 
-## Showing Errors
-
-Store errors in state and render them below each field:
-```jsx
-const [errors, setErrors] = useState({});
-
-<input className={errors.name ? "input-error" : ""} ... />
-{errors.name && <p className="error-message">{errors.name}</p>}
-```
-
-## Clearing Errors
-
-Clear a field's error when the user starts typing again:
-```jsx
-onChange={(e) => {
-    setName(e.target.value);
-    setErrors(prev => ({ ...prev, name: undefined }));
-}}
-```
+- **No query params** → `transaction` is null → add mode
+- **Query params with id** → `transaction` has data → edit mode, inputs get `defaultValue`
+- **`useActionState`** returns `[error, formAction, isPending]`:
+  - `error` — validation errors from the server action (or `{}` initially)
+  - `formAction` — pass to `<form action={formAction}>`
+  - `isPending` — `true` while the action runs (use on the button)
 
 ## Exercises
 
-Open `app/transactions/new/page.jsx` and complete TODOs 1-7.
+Open `app/components/TransactionForm.jsx` and complete the TODOs:
+
+1. Replace `transaction = null` with `Object.fromEntries(useSearchParams().entries())` + coerce id/amount
+2. Replace `isEdit = false` with `!!transaction`
+3. Replace `action = null` with the ternary
+4. Wire `useActionState`: `const [error, formAction, isPending] = useActionState(action, {})`
+5. Pass `action={formAction}` to the form tag
+6. Change title to `{isEdit ? "Edit" : "Add"} Transaction`
+7. Add `disabled={isPending}` and `"Saving..."` to the button
+8. Add error display on description and amount inputs (date is already done as reference)
 
 ## Expected Result
 
-Submit an empty form - you should see red error messages. Start typing and the errors clear. Fill in valid data and the form submits normally.
+- Add: `/transactions/form` → empty form → submit → redirected to list
+- Edit: click Edit on a transaction → form pre-fills from query params → save → updated
+- Validation: submit empty form → error messages appear on description and amount
 
 ## Self-Check
 
-- Does submitting an empty form show errors?
-- Does the name field turn red when invalid?
-- Do errors clear as you type?
-- Can you still submit valid data?
+- Does the title change between "Add" and "Edit"?
+- Does the button show "Saving..." during submission?
+- Do error messages appear and disappear correctly?
+- Does the Cancel link only show in edit mode?

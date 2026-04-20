@@ -1,42 +1,48 @@
-# Module 1: Controlled Inputs and useState
+# Module 1: Create Server Action
 
 ## Key Concept
 
-In React, a **controlled component** is an input whose value is driven by state. The component state is the single source of truth, not the DOM.
+A **server action** is an async function marked with `"use server"` that runs on the server but is called directly from a form. No `fetch()`, no API route needed for mutations.
 
 **The pattern:**
-```jsx
-const [name, setName] = useState("");
-<input value={name} onChange={(e) => setName(e.target.value)} />
+```js
+"use server";
+import transactionsRepo from "@/repos/TransactionsRepo";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
+
+export async function createTransactionAction(prevState, formData) {
+    const data = Object.fromEntries(formData);
+    data.amount = Number(data.amount);
+    // validate, create, revalidatePath, redirect
+}
 ```
 
-Every keystroke fires `onChange`, which updates the state, which re-renders the input with the new value. This is called **two-way data binding**.
+`Object.fromEntries(formData)` converts all form fields into a plain object. Each input's `name` attribute becomes a key.
 
-## Why Controlled?
+## Why Server Actions?
 
-- You always know the current value (it's in state)
-- You can validate, transform, or block input in real time
-- You can display the value elsewhere (like a live preview)
-
-Compare this to vanilla JS where you'd call `document.getElementById("name").value` to read the input. In React, you just read `name`.
+- No `fetch()` calls — the form calls the server directly
+- No `useState` per field — inputs use `name` and `defaultValue`
+- No `e.preventDefault()` — the form's `action` attribute handles submission
+- Validation happens on the server, errors come back via `useActionState`
 
 ## Exercises
 
-Open `app/practice/page.jsx` and complete:
+Open `app/actions/transactionActions.js` and complete TODOs 1a-1e in `createTransactionAction`:
 
-1. **TODO 1:** Import `useState` from `"react"`
-2. **TODO 2:** Create a `name` state variable
-3. **TODO 3:** Create an `amount` state variable
-4. **TODO 4:** Wire the text input with `value` and `onChange`
-5. **TODO 5:** Wire the number input with `value` and `onChange`
-6. **TODO 6:** Uncomment the preview box
+1. Convert formData: `const data = Object.fromEntries(formData)`
+2. Coerce amount: `data.amount = Number(data.amount)`
+3. Validate — build errors object, return errors if any fail
+4. Create: `await transactionsRepo.create(data)`
+5. Refresh + redirect: `revalidatePath("/")` then `redirect("/transactions")`
 
 ## Expected Result
 
-As you type your name and change the amount, the preview box updates in real time. The "10% savings" calculation updates automatically.
+After completing the action, go to `/transactions/form`, fill in a transaction, submit. You should be redirected to `/transactions` with the new entry visible.
 
 ## Self-Check
 
-- Does the preview update as you type?
-- What happens if you remove `value={name}` from the input? Try it.
-- What happens if you remove `onChange`? The input becomes read-only. That's React enforcing single source of truth.
+- Does the transaction appear on the list page after submit?
+- Does the Dashboard update (revalidatePath("/") refreshes it)?
+- What happens if you submit an empty form? (Validation returns errors, but you won't see them until the form is wired with useActionState)

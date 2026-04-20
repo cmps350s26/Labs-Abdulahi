@@ -1,5 +1,6 @@
 "use client";
 
+import { useActionState } from "react";
 import { useSearchParams } from "next/navigation";
 import { createBudgetAction, updateBudgetAction } from "@/app/actions/budgetActions";
 import Link from "next/link";
@@ -13,6 +14,7 @@ export default function BudgetFormPage() {
     const budget = null;  // TODO 10a: Replace with Object.fromEntries(useSearchParams().entries())
     const isEdit = false; // TODO 10b: Replace with !!budget.id
     const action = null;  // TODO 10c: Replace with isEdit ? updateBudgetAction : createBudgetAction
+    // TODO 10d: Wire useActionState: const [error, formAction, isPending] = useActionState(action, {})
 
     return (
         <main className="page">
@@ -58,6 +60,7 @@ export default function BudgetFormPage() {
                             defaultValue={budget?.year || 2026} />
                     </div>
                     <div className="form-actions">
+                        {/* TODO: Add disabled={isPending} and show "Saving..." when pending */}
                         <button type="submit" className="btn btn--primary">
                             {isEdit ? "Save Changes" : "Add Budget"}
                         </button>

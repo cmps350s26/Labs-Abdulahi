@@ -1,40 +1,35 @@
-# Module 2: Building a Multi-Field Form
+# Module 2: Update Server Action
 
 ## Key Concept
 
-A real form has multiple fields. Each field gets its own `useState` call. The form structure uses standard HTML `<form>`, `<label>`, and input elements, but each is controlled by React state.
+The update action is almost identical to create. The difference: destructure `id` out of the data and call `update` instead of `create`.
 
-**Select elements** work the same way as text inputs:
-```jsx
-const [type, setType] = useState("checking");
-<select value={type} onChange={(e) => setType(e.target.value)}>
-    <option value="checking">Checking</option>
-    <option value="savings">Savings</option>
-</select>
+```js
+export async function updateTransactionAction(prevState, formData) {
+    const { id, ...fields } = Object.fromEntries(formData);
+    fields.amount = Number(fields.amount);
+    // validate, update, revalidatePath, redirect
+}
 ```
 
-## Form Structure
-
-A good form has:
-- A `<label>` for every input (use `htmlFor` in JSX, not `for`)
-- Grouped fields in `form-group` divs
-- A submit button inside the form
+`const { id, ...fields }` separates the ID from the rest. The `id` comes from a hidden input in the form: `<input type="hidden" name="id" value={transaction.id} />`.
 
 ## Exercises
 
-Open `app/transactions/new/page.jsx` and complete:
+Open `app/actions/transactionActions.js` and complete TODOs 2a-2e in `updateTransactionAction`:
 
-1. **TODO 1:** Import `useState`
-2. **TODO 2:** Create state for name, type, and balance
-3. **TODO 3-5:** Wire each input as a controlled component
-4. **TODO 6:** Add `type="submit"` to the button
+1. Destructure: `const { id, ...fields } = Object.fromEntries(formData)`
+2. Coerce: `fields.amount = Number(fields.amount)`
+3. Validate (same rules as create), return errors if any fail
+4. Update: `await transactionsRepo.update(id, fields)`
+5. Refresh + redirect: `revalidatePath("/")` then `redirect("/transactions")`
 
 ## Expected Result
 
-Navigate to `/accounts/new`. You should see a form with three fields. Typing in any field updates the state. The button doesn't do anything yet (that's Module 3).
+Click Edit on a transaction → form opens with data pre-filled → change a field → submit → redirected to list with updated data.
 
 ## Self-Check
 
-- Can you type in all three fields?
-- Does the select default to "Checking"?
-- Open React DevTools - can you see the state values updating?
+- Does the edit form show the existing values?
+- After saving, does the list reflect the changes?
+- What happens if you clear the description and submit? (Validation should catch it)

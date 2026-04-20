@@ -7,6 +7,8 @@ import Link from "next/link";
 export default function TransactionsPage() {
     const [transactions, setTransactions] = useState([]);
     const [filterType, setFilterType] = useState("all");
+    // TODO 4c: Add state for deleteId (controls the confirmation dialog)
+    //   const [deleteId, setDeleteId] = useState(null);
 
     async function loadTransactions() {
         const url = filterType === "all"
@@ -23,7 +25,8 @@ export default function TransactionsPage() {
 
     // TODO 4b: Create handleDelete(id) that:
     //   1. Calls await deleteTransactionAction(id)
-    //   2. Calls await loadTransactions() to refresh the list
+    //   2. Sets deleteId back to null
+    //   3. Removes the item from local state: setTransactions(prev => prev.filter(t => t.id !== id))
 
     return (
         <main className="page">
@@ -65,6 +68,7 @@ export default function TransactionsPage() {
                                 <td>{t.date}</td>
                                 <td>
                                     <Link href={{ pathname: "/transactions/form", query: t }} className="btn btn--small btn--primary">Edit</Link>
+                                    {/* TODO 4d: Change onClick to () => setDeleteId(t.id) instead of calling handleDelete directly */}
                                     <button className="btn btn--small btn--danger" onClick={() => handleDelete(t.id)}>Delete</button>
                                 </td>
                             </tr>
@@ -72,6 +76,21 @@ export default function TransactionsPage() {
                     </tbody>
                 </table>
             </div>
+
+            {/* TODO 4e: Add confirmation dialog:
+                {deleteId && (
+                    <div className="confirm-overlay">
+                        <div className="confirm-dialog">
+                            <h3>Delete Transaction</h3>
+                            <p>Are you sure? This action cannot be undone.</p>
+                            <div className="form-actions">
+                                <button className="btn btn--danger" onClick={() => handleDelete(deleteId)}>Delete</button>
+                                <button className="btn btn--primary" onClick={() => setDeleteId(null)}>Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                )}
+            */}
         </main>
     );
 }

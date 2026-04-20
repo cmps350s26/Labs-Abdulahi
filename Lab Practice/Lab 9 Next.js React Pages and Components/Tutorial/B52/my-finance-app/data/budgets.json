@@ -1,7 +1,0 @@
-[
-    { "id": 1, "category": "Housing", "budgeted": 5000, "spent": 4500, "month": "March", "year": 2026 },
-    { "id": 2, "category": "Food", "budgeted": 2000, "spent": 1250, "month": "March", "year": 2026 },
-    { "id": 3, "category": "Transport", "budgeted": 500, "spent": 150, "month": "March", "year": 2026 },
-    { "id": 4, "category": "Utilities", "budgeted": 1000, "spent": 765, "month": "March", "year": 2026 },
-    { "id": 5, "category": "Entertainment", "budgeted": 500, "spent": 245, "month": "March", "year": 2026 }
-]

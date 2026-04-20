@@ -1,61 +1,44 @@
-# Module 5: Edit Forms and Dynamic Routes
+# Module 5: Budget Server Actions (Part B)
 
 ## Key Concept
 
-An edit form is the same as a create form, but:
-- It **loads existing data** when the page opens
-- It sends a **PUT** request instead of POST
-- The URL includes the item's ID: `/accounts/3/edit`
+Part B applies the same patterns from transactions to budgets. You write the server actions and wire the form independently.
 
-## Getting the ID from the URL
+Budget fields: `category`, `budgeted`, `spent`, `month`, `year`
 
-Use `useParams` to read the dynamic route segment:
-```jsx
-import { useParams } from "next/navigation";
-const params = useParams();
-// For URL /accounts/3/edit, params.id is "3"
-```
+Numeric fields to coerce: `budgeted`, `spent`, `year`
 
-## Loading Existing Data
-
-Fetch the item in `useEffect` and populate the form:
-```jsx
-useEffect(() => {
-    fetch(`/api/transactions/${params.id}`)
-        .then(res => res.json())
-        .then(data => {
-            setName(data.name);
-            setType(data.type);
-            setBalance(String(data.balance));
-            setLoading(false);
-        });
-}, [params.id]);
-```
-
-Note: `balance` is stored as a string in state because that's what the number input expects.
-
-## PUT vs POST
-
-The only difference in the fetch call:
-```jsx
-fetch(`/api/transactions/${params.id}`, {
-    method: "PUT",        // Not POST
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, type, balance: Number(balance) })
-});
-```
+Validation: category not empty, budgeted > 0, month not empty, year >= 2020
 
 ## Exercises
 
-Open `app/transactions/[id]/edit/page.jsx` and complete TODOs 1-5.
+**TODOs 5-7** in `app/actions/budgetActions.js`:
+
+1. `createBudgetAction` — Object.fromEntries, coerce numbers, validate, create, revalidatePath("/"), redirect("/budgets")
+2. `updateBudgetAction` — destructure { id, ...fields }, coerce, validate, update, revalidatePath, redirect
+3. `deleteBudgetAction` — delete, revalidatePath("/")
+
+**TODOs 8a-8e** in `app/budgets/page.jsx`:
+
+1. Import `deleteBudgetAction`
+2. Add `deleteId` state
+3. Create `handleDelete` — calls action, resets deleteId, calls loadBudgets
+4. Pass `onDelete={setDeleteId}` to BudgetCard
+5. Uncomment the confirmation dialog
+
+**TODOs 9a-9b** in `app/components/BudgetCard.jsx`:
+
+1. Add `href={{ pathname: "/budgets/form", query: budget }}` to Edit link
+2. Add `onClick={() => onDelete(budget.id)}` to Delete button
 
 ## Expected Result
 
-Click "Edit" on any transaction row. The form should load with that account's data pre-filled. Make changes and save - the transaction should update.
+- Add budget → appears in grid
+- Edit budget → form pre-fills → saves correctly
+- Delete budget → dialog → confirm → removed from grid
 
 ## Self-Check
 
-- Does the form show "Loading..." briefly?
-- Is the form pre-filled with the correct data?
-- Does saving redirect you back to accounts?
-- Is the data actually updated? (Check the transactions page)
+- Do all three budget actions work (create, update, delete)?
+- Does the budget form detect add vs edit mode?
+- Does the confirmation dialog work on the budgets page?
