@@ -43,6 +43,8 @@ export default function BudgetFormPage() {
                         <label htmlFor="budgeted">Budget Amount (QAR)</label>
                         <input id="budgeted" name="budgeted" type="number" min="0" step="0.01" placeholder="0.00"
                             defaultValue={budget?.budgeted || ""} />
+
+                        {error?.budgeted && <p className="error-message">{error.budgeted}</p>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="spent">Amount Spent (QAR)</label>
@@ -64,8 +66,9 @@ export default function BudgetFormPage() {
                     </div>
                     <div className="form-actions">
                         {/* TODO: Add disabled={isPending} and show "Saving..." when pending */}
-                        <button type="submit" className="btn btn--primary">
-                            {isEdit ? "Save Changes" : "Add Budget"}
+                        <button type="submit" className="btn btn--primary" disabled={isPending}>
+                            {isPending ? "Saving..." : isEdit ? "Save Changes" : "Add Budget"}
+
                         </button>
                         {isEdit && <Link href="/budgets" className="btn btn--danger">Cancel</Link>}
                     </div>
