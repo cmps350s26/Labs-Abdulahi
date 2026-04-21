@@ -28,6 +28,7 @@ export async function createBudgetAction(prevState, formData) {
     }
 
     await budgetsRepo.create(data);
+
     revalidatePath("/");
     redirect("/budgets");
 }
@@ -38,9 +39,33 @@ export async function updateBudgetAction(prevState, formData) {
     // TODO 6c: Validate (same rules as create). Return errors if any fail.
     // TODO 6d: await budgetsRepo.update(id, fields)
     // TODO 6e: revalidatePath("/") then redirect("/budgets")
+
+    const { id, ...fields } = Object.fromEntries(formData);
+    fields.budgeted = Number(fields.budgeted);
+    fields.spent = Number(fields.spent);
+    fields.year = Number(fields.year);
+
+    const errors = {};
+    if (!fields.category) errors.category = "Category is required";
+    if (isNaN(fields.budgeted) || fields.budgeted <= 0) errors.budgeted = "Budgeted amount must be greater than 0";
+    if (!fields.month) errors.month = "Month is required";
+    if (isNaN(fields.year) || fields.year < 2020) errors.year = "Year must be 2020 or later";
+
+    if (Object.keys(errors).length > 0) {
+        return errors;
+    }
+
+    await budgetsRepo.update(id, fields);
+
+    revalidatePath("/");
+    redirect("/budgets");
 }
 
 export async function deleteBudgetAction(id) {
     // TODO 7a: await budgetsRepo.delete(id)
     // TODO 7b: revalidatePath("/")
+
+    await budgetsRepo.delete(id);
+
+    revalidatePath("/");
 }

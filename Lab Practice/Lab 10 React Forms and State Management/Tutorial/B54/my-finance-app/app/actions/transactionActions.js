@@ -14,6 +14,23 @@ export async function createTransactionAction(prevState, formData) {
     //   if (Object.keys(errors).length > 0) return errors
     // TODO 1d: await transactionsRepo.create(data)
     // TODO 1e: revalidatePath("/") then redirect("/transactions")
+
+    const data = Object.fromEntries(formData);
+    data.amount = Number(data.amount);
+
+    const errors = {};
+    if (!data.description?.trim()) errors.description = "Description is required";
+    if (!data.amount || data.amount <= 0) errors.amount = "Amount must be greater than 0";
+    if (!data.date) errors.date = "Date is required";
+
+    if (Object.keys(errors).length > 0) {
+        return errors;
+    }
+
+    await transactionsRepo.create(data);
+
+    revalidatePath("/");
+    redirect("/transactions");
 }
 
 export async function updateTransactionAction(prevState, formData) {
@@ -22,9 +39,30 @@ export async function updateTransactionAction(prevState, formData) {
     // TODO 2c: Validate (same rules as create). Return errors if any fail.
     // TODO 2d: await transactionsRepo.update(id, fields)
     // TODO 2e: revalidatePath("/") then redirect("/transactions")
+
+    const { id, ...fields } = Object.fromEntries(formData);
+    fields.amount = Number(fields.amount);
+
+    const errors = {};
+    if (!fields.description?.trim()) errors.description = "Description is required";
+    if (!fields.amount || fields.amount <= 0) errors.amount = "Amount must be greater than 0";
+    if (!fields.date) errors.date = "Date is required";
+
+    if (Object.keys(errors).length > 0) {
+        return errors;
+    }
+
+    await transactionsRepo.update(id, fields);
+
+    revalidatePath("/");
+    redirect("/transactions");
 }
 
 export async function deleteTransactionAction(id) {
     // TODO 3a: await transactionsRepo.delete(id)
     // TODO 3b: revalidatePath("/")
+
+    await transactionsRepo.delete(id);
+
+    revalidatePath("/");
 }
