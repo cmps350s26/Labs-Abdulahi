@@ -9,7 +9,7 @@ College of Engineering - Department of Computer Science and Engineering<br>
 # Assignment 4: Next.js Frontend with Server Actions
 
 **Graded out of:** 100%
-**Deadline:** Saturday, May 3, 2026 - 11:59 PM
+**Deadline:** Saturday, May 2, 2026 - 11:59 PM
 
 ---
 
