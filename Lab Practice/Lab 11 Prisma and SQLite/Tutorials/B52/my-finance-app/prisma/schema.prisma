@@ -10,15 +10,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// {
-//       "id": 2,
-//       "name": "Savings"
-//   }
-
 model Account {
   id           Int           @id @default(autoincrement())
   name         String
   transactions Transaction[]
+  budgets      Budget[]
 }
 
 model Transaction {
@@ -31,4 +27,15 @@ model Transaction {
   accountId   Int    @default(1)
 
   account Account @relation(fields: [accountId], references: [id])
+}
+
+model Budget {
+  id        Int     @id @default(autoincrement())
+  category  String
+  budgeted  Float
+  spent     Float   @default(0)
+  month     String
+  year      Int
+  accountId Int     @default(1)
+  account   Account @relation(fields: [accountId], references: [id])
 }
