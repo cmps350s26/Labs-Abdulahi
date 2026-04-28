@@ -1,0 +1,146 @@
+[
+    {
+        "id": 1,
+        "description": "Monthly Salary",
+        "amount": 12000,
+        "type": "income",
+        "category": "Salary",
+        "date": "2026-03-01",
+        "accountId": 1
+    },
+    {
+        "id": 2,
+        "description": "Apartment Rent",
+        "amount": 5000,
+        "type": "expense",
+        "category": "Housing",
+        "date": "2026-03-02",
+        "accountId": 1
+    },
+    {
+        "id": 3,
+        "description": "Grocery Shopping",
+        "amount": 850,
+        "type": "expense",
+        "category": "Food",
+        "date": "2026-03-03",
+        "accountId": 1
+    },
+    {
+        "id": 4,
+        "description": "Electricity Bill",
+        "amount": 320,
+        "type": "expense",
+        "category": "Utilities",
+        "date": "2026-03-05",
+        "accountId": 1
+    },
+    {
+        "id": 5,
+        "description": "Freelance Project",
+        "amount": 3500,
+        "type": "income",
+        "category": "Salary",
+        "date": "2026-03-07",
+        "accountId": 2
+    },
+    {
+        "id": 6,
+        "description": "Dining Out",
+        "amount": 400,
+        "type": "expense",
+        "category": "Food",
+        "date": "2026-03-10",
+        "accountId": 1
+    },
+    {
+        "id": 7,
+        "description": "Bus Pass",
+        "amount": 150,
+        "type": "expense",
+        "category": "Transport",
+        "date": "2026-03-12",
+        "accountId": 1
+    },
+    {
+        "id": 8,
+        "description": "Phone Bill",
+        "amount": 120,
+        "type": "expense",
+        "category": "Utilities",
+        "date": "2026-03-15",
+        "accountId": 1
+    },
+    {
+        "id": 9,
+        "description": "Monthly Salary",
+        "amount": 12000,
+        "type": "income",
+        "category": "Salary",
+        "date": "2026-04-01",
+        "accountId": 1
+    },
+    {
+        "id": 10,
+        "description": "Apartment Rent",
+        "amount": 5000,
+        "type": "expense",
+        "category": "Housing",
+        "date": "2026-04-02",
+        "accountId": 1
+    },
+    {
+        "id": 11,
+        "description": "Grocery Shopping",
+        "amount": 920,
+        "type": "expense",
+        "category": "Food",
+        "date": "2026-04-04",
+        "accountId": 1
+    },
+    {
+        "id": 12,
+        "description": "Internet Bill",
+        "amount": 250,
+        "type": "expense",
+        "category": "Utilities",
+        "date": "2026-04-08",
+        "accountId": 1
+    },
+    {
+        "id": 13,
+        "description": "Tutoring Session",
+        "amount": 800,
+        "type": "income",
+        "category": "Salary",
+        "date": "2026-04-12",
+        "accountId": 2
+    },
+    {
+        "id": 14,
+        "description": "Movie Night",
+        "amount": 180,
+        "type": "expense",
+        "category": "Entertainment",
+        "date": "2026-04-15",
+        "accountId": 1
+    },
+    {
+        "id": 15,
+        "description": "Gas Refill",
+        "amount": 200,
+        "type": "expense",
+        "category": "Transport",
+        "date": "2026-04-19",
+        "accountId": 1
+    },
+    {
+        "id": 16,
+        "description": "Phone Bill",
+        "amount": 130,
+        "type": "expense",
+        "category": "Utilities",
+        "date": "2026-04-22",
+        "accountId": 1
+    }
+]

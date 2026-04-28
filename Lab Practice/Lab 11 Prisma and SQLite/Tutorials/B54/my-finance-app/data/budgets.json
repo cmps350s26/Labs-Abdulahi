@@ -1,0 +1,101 @@
+[
+    {
+        "id": 1,
+        "category": "Entertainment",
+        "budgeted": 5000,
+        "spent": 4500,
+        "month": "March",
+        "year": 2026,
+        "accountId": 1
+    },
+    {
+        "id": 2,
+        "category": "Food",
+        "budgeted": 2000,
+        "spent": 1250,
+        "month": "March",
+        "year": 2026,
+        "accountId": 1
+    },
+    {
+        "id": 3,
+        "category": "Transport",
+        "budgeted": 500,
+        "spent": 150,
+        "month": "March",
+        "year": 2026,
+        "accountId": 2
+    },
+    {
+        "id": 4,
+        "category": "Entertainment",
+        "budgeted": 1000,
+        "spent": 765,
+        "month": "March",
+        "year": 2026,
+        "accountId": 2
+    },
+    {
+        "id": 5,
+        "category": "Housing",
+        "budgeted": 5000,
+        "spent": 4800,
+        "month": "April",
+        "year": 2026,
+        "accountId": 1
+    },
+    {
+        "id": 6,
+        "category": "Food",
+        "budgeted": 2200,
+        "spent": 1900,
+        "month": "April",
+        "year": 2026,
+        "accountId": 1
+    },
+    {
+        "id": 7,
+        "category": "Transport",
+        "budgeted": 600,
+        "spent": 200,
+        "month": "April",
+        "year": 2026,
+        "accountId": 2
+    },
+    {
+        "id": 8,
+        "category": "Utilities",
+        "budgeted": 1000,
+        "spent": 820,
+        "month": "April",
+        "year": 2026,
+        "accountId": 2
+    },
+    {
+        "id": 9,
+        "category": "Entertainment",
+        "budgeted": 800,
+        "spent": 450,
+        "month": "April",
+        "year": 2026,
+        "accountId": 1
+    },
+    {
+        "id": 10,
+        "category": "Housing",
+        "budgeted": 5000,
+        "spent": 0,
+        "month": "May",
+        "year": 2026,
+        "accountId": 1
+    },
+    {
+        "id": 11,
+        "category": "Food",
+        "budgeted": 2200,
+        "spent": 0,
+        "month": "May",
+        "year": 2026,
+        "accountId": 1
+    }
+]

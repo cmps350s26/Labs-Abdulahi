@@ -1,0 +1,44 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Account {
+  id           Int           @id @default(autoincrement())
+  name         String
+  transactions Transaction[]
+  budgets      Budget[]
+}
+
+model Transaction {
+  id          Int      @id @default(autoincrement())
+  description String
+  amount      Float
+  type        String
+  category    String
+  date        String
+  accountId   Int      @default(1)
+  createdAt   DateTime @default(now())
+
+  account Account @relation(fields: [accountId], references: [id])
+}
+
+model Budget {
+  id        Int      @id @default(autoincrement())
+  category  String
+  budgeted  Float
+  spent     Float    @default(0)
+  month     String
+  year      Int
+  accountId Int      @default(1)
+  createdAt DateTime @default(now())
+  // relationship
+  account   Account  @relation(fields: [accountId], references: [id])
+}

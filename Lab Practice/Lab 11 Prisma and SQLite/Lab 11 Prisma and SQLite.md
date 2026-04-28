@@ -260,6 +260,10 @@ Now turn the schema into an actual SQLite database. Prisma compares your schema 
 
 ```bash
 npx prisma migrate dev --name init
+
+npx prisma db seed
+
+npx prisma studio
 ```
 
 What this does:

@@ -1,0 +1,10 @@
+node_modules/
+.next/
+
+# Prisma local database
+*.db
+*.db-journal
+prisma/dev.db
+prisma/dev.db-journal
+
+/app/generated/prisma
